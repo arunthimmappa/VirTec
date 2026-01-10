@@ -4,6 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+type NavProduct = {
+  label: string;
+  href: string;
+  description: string;
+};
+
+type NavCategory = {
+  label: string;
+  href: string;
+  description: string;
+  products?: NavProduct[];
+};
+
 type NavChild = {
   label: string;
   href: string;
@@ -14,32 +27,121 @@ type NavItem = {
   label: string;
   href: string;
   children?: NavChild[];
+  categories?: NavCategory[];
 };
 
 const navItems: NavItem[] = [
   {
     label: "Products",
     href: "#products",
-    children: [
+    categories: [
       {
         label: "Flow Meters",
         href: "#flow-meters",
-        description: "Ultrasonic & electromagnetic precision for water and HVAC.",
+        description: "High-precision ultrasonic and electromagnetic flow measurement",
+        products: [
+          {
+            label: "VIR-800 Series",
+            href: "#vir-800",
+            description: "Electromagnetic Flow Meter and Heat Meter - Inline Flanged",
+          },
+          {
+            label: "VIR-ISRT-800 Series",
+            href: "#vir-isrt-800",
+            description: "Electromagnetic Flow Meter - Inline Insertion Type",
+          },
+          {
+            label: "LXC Series",
+            href: "#lxc-battery",
+            description: "Ultrasonic Flow Meter - Battery Operated",
+          },
+          {
+            label: "VIR-850 Series",
+            href: "#vir-850",
+            description: "Ultrasonic Flow Meter and Heat Meter - 24V",
+          },
+          {
+            label: "VIR-832 Insertion",
+            href: "#vir-832-insertion",
+            description: "Ultrasonic Flow Meter - Insertion Type",
+          },
+          {
+            label: "VIR-832 Clamp On",
+            href: "#vir-832-clamp",
+            description: "Non-Invasive Clamp On Meter",
+          },
+          {
+            label: "LXC Water Meter",
+            href: "#lxc-water",
+            description: "Electronic Flow Meter for Water",
+          },
+        ],
       },
       {
         label: "Heat Meters",
         href: "#heat-meters",
-        description: "Thermal energy measurement for district systems.",
+        description: "Accurate thermal energy measurement for district systems",
+        products: [
+          {
+            label: "VIR UF",
+            href: "#vir-uf",
+            description: "Ultrasonic Heat Meter - Range 125mm to 800mm",
+          },
+          {
+            label: "LXC Threaded Brass",
+            href: "#lxc-threaded",
+            description: "Ultrasonic Heat Meter - Threaded Brass Series",
+          },
+          {
+            label: "LXC Flange Series",
+            href: "#lxc-flange",
+            description: "Ultrasonic Heat Meter - Range 50mm to 300mm",
+          },
+        ],
       },
       {
         label: "Variable Speed Drives",
         href: "#vsd",
-        description: "Intelligent motor control for energy efficiency.",
+        description: "Intelligent motor control for energy efficiency",
+        products: [
+          {
+            label: "Eco EM-700",
+            href: "#em-700",
+            description: "VSD for Ventilation",
+          },
+          {
+            label: "Basic EM-750 Series",
+            href: "#em-750",
+            description: "VSD for AHU",
+          },
+          {
+            label: "Advanced EM-760",
+            href: "#em-760",
+            description: "Advanced control logic for AHU and Pumps",
+          },
+        ],
       },
       {
         label: "IAQ Sensors",
         href: "#iaq",
-        description: "Temperature, humidity, CO₂ and air quality insights.",
+        description: "Advanced monitoring for temperature, humidity, CO₂, PM",
+        products: [
+          {
+            label: "VIR-IAQ-6-Series",
+            href: "#vir-iaq-6",
+            description: "Multi Sensor Option",
+          },
+          {
+            label: "IAQ Sensor with Display",
+            href: "#iaq-display",
+            description: "IAQ Sensor with Display",
+          },
+          {
+            label: "IAQ Sensor without Display",
+            href: "#iaq-no-display",
+            description: "IAQ Sensor without Display",
+          },
+        ],
       },
     ],
   },
@@ -92,9 +194,29 @@ const chevron = (
   </svg>
 );
 
+const rightChevron = (
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 20 20"
+    className="h-4 w-4"
+    fill="none"
+  >
+    <path
+      d="M8 5l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [openDesktopDropdown, setOpenDesktopDropdown] = useState<string | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -104,6 +226,22 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-dropdown-container]')) {
+        setOpenDesktopDropdown(null);
+        setHoveredCategory(null);
+      }
+    };
+
+    if (openDesktopDropdown) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [openDesktopDropdown]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-6 sm:px-6 lg:px-8">
@@ -125,12 +263,112 @@ export default function Navbar() {
               className="h-14 w-auto sm:h-14"
               priority
             />
-            
           </Link>
 
           <nav className="hidden items-center gap-6 lg:flex lg:gap-8">
             {navItems.map((item) =>
-              item.children ? (
+              item.categories ? (
+                <div 
+                  key={item.label} 
+                  className="relative"
+                  data-dropdown-container
+                >
+                  <button
+                    type="button"
+                    className="flex items-center gap-1.5 text-base font-medium text-slate-700 transition hover:text-slate-900"
+                    aria-haspopup="true"
+                    aria-expanded={openDesktopDropdown === item.label}
+                    onClick={() => {
+                      setOpenDesktopDropdown(openDesktopDropdown === item.label ? null : item.label);
+                      if (openDesktopDropdown === item.label) {
+                        setHoveredCategory(null);
+                      }
+                    }}
+                  >
+                    {item.label}
+                    <span className={`text-slate-600 transition-transform duration-200 ${openDesktopDropdown === item.label ? 'rotate-180' : ''}`}>
+                      {chevron}
+                    </span>
+                  </button>
+                  
+                  {/* Main Categories Dropdown */}
+                  <div 
+                    className={`absolute left-0 top-full mt-5 w-[320px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur z-50 transition-all duration-200 ${
+                      openDesktopDropdown === item.label 
+                        ? 'opacity-100 pointer-events-auto translate-y-0' 
+                        : 'opacity-0 pointer-events-none -translate-y-2'
+                    }`}
+                  >
+                    <div className="flex flex-col gap-1">
+                      {item.categories.map((category) => (
+                        <div key={category.label}>
+                          <div
+                            onMouseEnter={() => category.products && category.products.length > 0 && setHoveredCategory(category.label)}
+                            onMouseLeave={() => setHoveredCategory(null)}
+                            className="relative"
+                          >
+                            <Link
+                              href={category.href}
+                              className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 transition hover:bg-slate-50 group"
+                            >
+                              <div className="flex-1">
+                                <div className="text-sm font-semibold text-slate-900 group-hover:text-primary-yellow transition-colors">
+                                  {category.label}
+                                </div>
+                                <div className="mt-1 text-xs text-slate-600 leading-relaxed">
+                                  {category.description}
+                                </div>
+                              </div>
+                              {category.products && category.products.length > 0 && (
+                                <span className="text-slate-400 group-hover:text-slate-600 transition-colors">
+                                  {rightChevron}
+                                </span>
+                              )}
+                            </Link>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Products Sub-Dropdown - Appears to the right */}
+                  {item.categories.map((category) => (
+                    category.products && category.products.length > 0 && (
+                      <div
+                        key={`products-${category.label}`}
+                        onMouseEnter={() => setHoveredCategory(category.label)}
+                        onMouseLeave={() => setHoveredCategory(null)}
+                        className={`absolute left-[330px] top-full mt-5 w-[340px] rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur z-50 transition-all duration-200 ${
+                          openDesktopDropdown === item.label && hoveredCategory === category.label
+                            ? 'opacity-100 pointer-events-auto translate-y-0' 
+                            : 'opacity-0 pointer-events-none -translate-y-2'
+                        }`}
+                      >
+                        <div className="grid gap-2">
+                          {category.products.map((product) => (
+                            <Link
+                              key={product.label}
+                              href={product.href}
+                              className="group/product block rounded-lg border border-slate-100 p-3 transition hover:border-primary-yellow hover:bg-yellow-50/50"
+                              onClick={() => {
+                                setOpenDesktopDropdown(null);
+                                setHoveredCategory(null);
+                              }}
+                            >
+                              <div className="text-sm font-semibold text-slate-900 group-hover/product:text-primary-yellow transition-colors">
+                                {product.label}
+                              </div>
+                              <div className="mt-1 text-xs text-slate-600 leading-relaxed">
+                                {product.description}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  ))}
+                </div>
+              ) : item.children ? (
                 <div key={item.label} className="group relative">
                   <button
                     type="button"
@@ -142,15 +380,15 @@ export default function Navbar() {
                       {chevron}
                     </span>
                   </button>
-                  <div className="pointer-events-none absolute left-0 top-full mt-5 w-[420px] rounded-2xl border border-slate-200 bg-white/95 p-5 opacity-0 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                    <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="pointer-events-none absolute left-0 top-full mt-5 w-[380px] rounded-2xl border border-slate-200 bg-white p-5 opacity-0 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                    <div className="grid gap-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="group/item rounded-xl border border-transparent p-3 transition hover:border-slate-200 hover:bg-slate-50"
+                          className="group/item rounded-xl border border-slate-100 p-3 transition hover:border-slate-200 hover:bg-slate-50"
                         >
-                          <div className="text-sm text-slate-900 group-hover/item:text-slate-950">
+                          <div className="text-sm font-medium text-slate-900 group-hover/item:text-primary-yellow transition-colors">
                             {child.label}
                           </div>
                           <div className="mt-1 text-xs leading-relaxed text-slate-600">
@@ -193,7 +431,15 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-full border border-slate-300 p-2.5 text-slate-700 transition hover:border-slate-400 lg:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((open) => !open)}
+            onClick={() => {
+              setMobileOpen((open) => {
+                if (open) {
+                  setExpanded(null);
+                  setExpandedCategory(null);
+                }
+                return !open;
+              });
+            }}
           >
             <svg
               aria-hidden="true"
@@ -216,7 +462,91 @@ export default function Navbar() {
         <div className="mx-auto mt-4 max-w-7xl rounded-full border border-slate-200 bg-white px-6 pb-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)] lg:hidden">
           <div className="flex flex-col gap-4 pt-4">
             {navItems.map((item) =>
-              item.children ? (
+              item.categories ? (
+                <div key={item.label} className="rounded-2xl border border-slate-200">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between px-4 py-3 text-left text-base font-semibold text-slate-800"
+                    onClick={() => {
+                      setExpanded((current) => {
+                        const newExpanded = current === item.label ? null : item.label;
+                        if (newExpanded !== item.label) {
+                          setExpandedCategory(null);
+                        }
+                        return newExpanded;
+                      });
+                    }}
+                    aria-expanded={expanded === item.label}
+                  >
+                    {item.label}
+                    <span
+                      className={`transition ${expanded === item.label ? "rotate-180" : ""}`}
+                    >
+                      {chevron}
+                    </span>
+                  </button>
+                  {expanded === item.label ? (
+                    <div className="space-y-2 px-4 pb-4">
+                      {item.categories.map((category) => (
+                        <div key={category.label} className="rounded-xl border border-slate-100 bg-slate-50 overflow-hidden">
+                          <div className="flex items-center justify-between">
+                            <Link
+                              href={category.href}
+                              className="flex-1 block px-3 py-2.5"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              <div className="text-sm font-semibold text-slate-900">
+                                {category.label}
+                              </div>
+                              <div className="mt-1 text-xs text-slate-600">
+                                {category.description}
+                              </div>
+                            </Link>
+                            {category.products && category.products.length > 0 && (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setExpandedCategory(
+                                    expandedCategory === category.label ? null : category.label
+                                  );
+                                }}
+                                className="px-3 py-2.5 flex-shrink-0"
+                                aria-expanded={expandedCategory === category.label}
+                              >
+                                <span
+                                  className={`transition ${expandedCategory === category.label ? "rotate-180" : ""}`}
+                                >
+                                  {chevron}
+                                </span>
+                              </button>
+                            )}
+                          </div>
+                          {category.products && expandedCategory === category.label && (
+                            <div className="px-3 pb-2 space-y-1.5 border-t border-slate-200 pt-2">
+                              {category.products.map((product) => (
+                                <Link
+                                  key={product.label}
+                                  href={product.href}
+                                  className="block rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs"
+                                  onClick={() => setMobileOpen(false)}
+                                >
+                                  <div className="font-medium text-slate-900">
+                                    {product.label}
+                                  </div>
+                                  <div className="mt-0.5 text-[10px] text-slate-500">
+                                    {product.description}
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              ) : item.children ? (
                 <div key={item.label} className="rounded-2xl border border-slate-200">
                   <button
                     type="button"
@@ -258,11 +588,11 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                className="text-base text-slate-700"
-              >
-                {item.label}
-              </Link>
-            ),
+                  className="text-base text-slate-700"
+                >
+                  {item.label}
+                </Link>
+              ),
             )}
             <div className="flex flex-col gap-3 pt-2">
               <Link
