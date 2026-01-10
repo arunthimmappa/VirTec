@@ -11,7 +11,6 @@ body {
   margin: 0;
   background: #ffffff;
   color: #0f172a;
-  font-family: var(--font-space-grotesk), "Segoe UI", sans-serif;
 }
 
 .font-display {
@@ -134,5 +133,6 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-fraunces), "Times New Roman", serif;
   }
 }
