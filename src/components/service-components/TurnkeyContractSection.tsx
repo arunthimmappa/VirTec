@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileCheck, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export default function TurnkeyContractSection() {
   const benefits = [

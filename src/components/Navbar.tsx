@@ -172,9 +172,8 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Services", href: "/services" },
-  { label: "Resources", href: "#resources" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Resources", href: "/resources" },
 ];
 
 const chevron = (
@@ -186,23 +185,6 @@ const chevron = (
   >
     <path
       d="M5 8l5 5 5-5"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const rightChevron = (
-  <svg
-    aria-hidden="true"
-    viewBox="0 0 20 20"
-    className="h-4 w-4"
-    fill="none"
-  >
-    <path
-      d="M8 5l5 5-5 5"
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
@@ -443,15 +425,9 @@ export default function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="mailto:sales@virtec.us"
-              className="rounded-full border border-slate-300 px-5 py-2.5 text-base text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
-            >
-              Request demo
-            </Link>
-            <Link
-              href="mailto:sales@virtec.us"
               className="rounded-full bg-primary-yellow px-6 py-2.5 text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95"
             >
-              Get a quote
+              Contact Us
             </Link>
           </div>
 

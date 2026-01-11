@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function ServicesHero() {
+export default function ResourcesHero() {
   return (
     <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,17 +16,14 @@ export default function ServicesHero() {
             className="space-y-6"
           >
             <h1 className="font-display text-4xl lg:text-6xl text-slate-900 leading-tight">
-              Our <span className="text-primary-yellow">Services</span>
+              Resources & <span className="text-primary-yellow">Documentation</span>
             </h1>
             <div className="space-y-4 text-base lg:text-lg leading-relaxed text-slate-700">
               <p>
-                In the arena of smart energy and water flow measurement solutions, we are one of the top manufacturers, and we pledge to offer the best assistance possible. By being our clients&apos; preferred decarbonization partner, we want to build long-term value for all of our stakeholders—customers, workers, shareholders, and partners. We always look ahead in search of a better energy future that improves our clientele&apos;s efficiency while generating long-term value for the communities they serve. We do this via our leadership, experience, and enthusiasm for partnerships.
+                Access our comprehensive collection of product catalogs, user manuals, technical drawings, and reference documents. All resources are available for download to help you get the most out of your Virtec products.
               </p>
               <p>
-                Our expertise enables us to completely grasp and meet the needs of various applications, markets, languages, legislation, standards, procedures, and requirements.
-              </p>
-              <p>
-                We provide a range of service alternatives to satisfy our clients&apos; specific service demands. We offer low-cost and high-quality services.
+                Find detailed specifications, installation guides, user manuals, and technical documentation for our complete range of flow meters, heat meters, variable speed drives, and IAQ sensors.
               </p>
             </div>
           </motion.div>
@@ -46,21 +43,10 @@ export default function ServicesHero() {
                   V
                 </div>
                 <p className="text-sm text-slate-500 font-medium">
-                  Image Placeholder
-                </p>
-                <p className="text-xs text-slate-400">
-                  Add your services image here
+                  Resources
                 </p>
               </div>
             </div>
-            {/* Uncomment and update path when you have the image */}
-            {/* <Image
-              src="/images/services-hero.jpg"
-              alt="Virtec Services"
-              fill
-              className="object-cover"
-              priority
-            /> */}
           </motion.div>
         </div>
       </div>

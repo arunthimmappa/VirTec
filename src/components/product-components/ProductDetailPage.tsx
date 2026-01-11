@@ -20,7 +20,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
 
   return (
     <div className="bg-white min-h-screen text-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-12 lg:pb-16">
         <div className="space-y-12 lg:space-y-16">
           {/* Hero Section */}
           <div className="space-y-6">
@@ -36,8 +36,8 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
             </div>
 
             {/* Product Image */}
-            {product.image && (
-              <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden bg-slate-100">
+            <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200">
+              {product.image ? (
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -45,8 +45,35 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
                 />
-              </div>
-            )}
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center space-y-3 px-4">
+                    <div className="w-20 h-20 mx-auto rounded-full bg-primary-yellow/20 flex items-center justify-center">
+                      <svg
+                        className="w-10 h-10 text-primary-yellow"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm sm:text-base text-slate-500 font-medium">
+                      Product Image
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      Image coming soon
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Overview Section */}

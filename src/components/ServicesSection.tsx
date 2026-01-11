@@ -31,7 +31,7 @@ export default function ServicesSection() {
             className="space-y-6 text-base lg:text-lg leading-relaxed text-slate-700"
           >
             <p>
-              <span className="text-primary-yellow">Virtec</span> highly prioritizes the needs of its customers and the requirements of various industries. We ensure that customer preferences and inquiries are kept as the company's first priority. For this, we work endlessly on our customer care services. Our staff is specially trained to handle customer queries with patience and ease.
+              <span className="text-primary-yellow">Virtec</span> highly prioritizes the needs of its customers and the requirements of various industries. We ensure that customer preferences and inquiries are kept as the company&apos;s first priority. For this, we work endlessly on our customer care services. Our staff is specially trained to handle customer queries with patience and ease.
             </p>
 
             <p>
@@ -57,7 +57,7 @@ export default function ServicesSection() {
                 className="text-primary-yellow/30 absolute top-4 left-4"
               />
               <p className="text-base lg:text-lg italic text-slate-800 pl-8">
-                "When we partner with our clients, we ensure that all their needs are met through a wide range of services, including on-site measurements, consulting services, lab analysis, instrument commissioning, instrument rentals, project handling, and training".
+                &quot;When we partner with our clients, we ensure that all their needs are met through a wide range of services, including on-site measurements, consulting services, lab analysis, instrument commissioning, instrument rentals, project handling, and training&quot;.
               </p>
             </div>
 

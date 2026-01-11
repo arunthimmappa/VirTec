@@ -78,7 +78,7 @@ export default async function ProductPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <div className="relative min-h-screen bg-white">
+      <div className="relative min-h-screen bg-white pt-24 sm:pt-28 lg:pt-32">
         <Navbar />
         <ProductDetailPage product={product} />
         <Footer />
