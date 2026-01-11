@@ -427,7 +427,7 @@ export default function Navbar() {
               href="mailto:sales@virtec.us"
               className="rounded-full bg-primary-yellow px-6 py-2.5 text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95"
             >
-              Contact Us
+              Get a quote
             </Link>
           </div>
 
@@ -600,11 +600,11 @@ export default function Navbar() {
             )}
             <div className="flex flex-col gap-3 pt-2">
               <Link
-                href="mailto:sales@virtec.us"
+                href="tel:+13045194567"
                 className="rounded-full border border-slate-300 px-4 py-2.5 text-center text-base text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
                 onClick={() => setMobileOpen(false)}
               >
-                Request demo
+                Contact us
               </Link>
               <Link
                 href="mailto:sales@virtec.us"

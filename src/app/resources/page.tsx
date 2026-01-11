@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResourcesHero from "@/components/resource-components/ResourcesHero";
-import ResourcesTabs from "@/components/resource-components/ResourcesTabs";
+import ResourcesAccordion from "@/components/resource-components/ResourcesAccordion";
 
 export const metadata: Metadata = {
   title: "Resources & Documentation | Virtec",
@@ -17,7 +17,7 @@ export default function ResourcesPage() {
     <div className="relative min-h-screen bg-white">
       <Navbar />
       <ResourcesHero />
-      <ResourcesTabs />
+      <ResourcesAccordion />
       <Footer />
     </div>
   );
