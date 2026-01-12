@@ -55,34 +55,11 @@ export default async function SolutionPage({
     return notFound();
   }
 
-  // Build FAQ Schema for SEO
-  const faqSchema = solution.faqs && solution.faqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: solution.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  } : null;
-
   return (
-    <>
-      {/* Inject FAQ Schema for SEO */}
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      <div className="relative min-h-screen bg-white pt-24 sm:pt-28 lg:pt-32">
-        <Navbar />
-        <SolutionDetailPage solution={solution} />
-        <Footer />
-      </div>
-    </>
+    <div className="relative min-h-screen bg-white pt-24 sm:pt-28 lg:pt-32">
+      <Navbar />
+      <SolutionDetailPage solution={solution} />
+      <Footer />
+    </div>
   );
 }

@@ -1,22 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Check, ArrowRight, TrendingUp, Users, Target } from "lucide-react";
+import { motion } from "framer-motion";
+import { Check, ArrowRight, Target } from "lucide-react";
 import Link from "next/link";
 import { Solution } from "@/data/solutions";
-import { getAllProducts, getProductBySlug } from "@/lib/products";
+import { getProductBySlug } from "@/lib/products";
 
 interface SolutionDetailPageProps {
   solution: Solution;
 }
 
 export default function SolutionDetailPage({ solution }: SolutionDetailPageProps) {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaqIndex(openFaqIndex === index ? null : index);
-  };
 
   // Get related products if they exist
   const relatedProducts = solution.relatedProducts
@@ -30,18 +24,44 @@ export default function SolutionDetailPage({ solution }: SolutionDetailPageProps
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-12 lg:pb-16">
         <div className="space-y-12 lg:space-y-16">
           {/* Hero Section */}
-          <div className="text-center space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 leading-tight">
-              {solution.title}
-            </h1>
-            {solution.subtitle && (
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-medium text-primary-yellow leading-tight">
-                {solution.subtitle}
-              </h2>
-            )}
-            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              {solution.description}
-            </p>
+          <div className="space-y-8">
+            <div className="text-center space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 leading-tight">
+                {solution.title}
+              </h1>
+              {solution.subtitle && (
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-medium text-primary-yellow leading-tight">
+                  {solution.subtitle}
+                </h2>
+              )}
+              <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                {solution.description}
+              </p>
+            </div>
+            
+            {/* Hero Image Placeholder */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-yellow/20 to-slate-900/10" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center space-y-2">
+                  <div className="text-6xl lg:text-8xl font-display text-primary-yellow/30">
+                    V
+                  </div>
+                  <p className="text-sm text-slate-500 font-medium">
+                    Image Placeholder
+                  </p>
+                  <p className="text-xs text-slate-400">
+                    Add your solution image here
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Overview Section - Business Focused */}
@@ -92,42 +112,6 @@ export default function SolutionDetailPage({ solution }: SolutionDetailPageProps
             </div>
           )}
 
-          {/* Business Benefits Section */}
-          {solution.benefits && solution.benefits.length > 0 && (
-            <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 lg:p-12">
-              <div className="max-w-4xl mx-auto space-y-8">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <TrendingUp className="w-6 h-6 text-primary-yellow" />
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-slate-900">
-                      Business Benefits
-                    </h2>
-                  </div>
-                  <p className="text-base text-slate-600">Value delivered to your organization</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                  {solution.benefits.map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start gap-4 bg-white border border-slate-200 rounded-xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-yellow/20 flex items-center justify-center mt-0.5">
-                        <Check className="w-4 h-4 text-primary-yellow" />
-                      </div>
-                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
-                        {benefit}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
           {/* Related Products Section */}
           {relatedProducts.length > 0 && (
             <div className="space-y-8">
@@ -168,114 +152,6 @@ export default function SolutionDetailPage({ solution }: SolutionDetailPageProps
                 ))}
               </div>
             </div>
-          )}
-
-          {/* Applications Section */}
-          {solution.applications && solution.applications.length > 0 && (
-            <div className="bg-gradient-to-br from-primary-yellow/5 to-primary-yellow/10 rounded-2xl p-8 sm:p-10 lg:p-12 border border-primary-yellow/20">
-              <div className="max-w-4xl mx-auto space-y-8">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <Users className="w-6 h-6 text-primary-yellow" />
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-slate-900">
-                      Use Cases & Applications
-                    </h2>
-                  </div>
-                  <p className="text-base text-slate-600">Where this solution delivers value</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {solution.applications.map((application, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className="flex items-center gap-3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-primary-yellow hover:shadow-md transition-all duration-300"
-                    >
-                      <Check className="w-5 h-5 text-primary-yellow flex-shrink-0" />
-                      <span className="text-sm sm:text-base text-slate-700 font-medium">{application}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* FAQs Section */}
-          {solution.faqs && solution.faqs.length > 0 && (
-            <section className="bg-white w-full py-8 sm:py-12 lg:py-16">
-              <div className="max-w-4xl mx-auto">
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-slate-900 mb-4 text-center"
-                >
-                  Frequently Asked Questions
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-center text-slate-600 mb-8 sm:mb-12"
-                >
-                  Common questions about this solution
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-slate-50 rounded-xl p-4 sm:p-6 lg:p-8 space-y-2 border border-slate-200"
-                >
-                  {solution.faqs.map((faq, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="border-b border-slate-200 last:border-none overflow-hidden"
-                    >
-                      <motion.div
-                        className="flex items-center justify-between py-4 sm:py-5 cursor-pointer"
-                        onClick={() => toggleFaq(index)}
-                      >
-                        <p className="text-base sm:text-lg font-medium text-slate-900 pr-4 leading-tight">
-                          {faq.question}
-                        </p>
-                        <motion.div
-                          animate={{ rotate: openFaqIndex === index ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="flex-shrink-0"
-                        >
-                          <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 text-primary-yellow" />
-                        </motion.div>
-                      </motion.div>
-
-                      <AnimatePresence>
-                        {openFaqIndex === index && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="overflow-hidden"
-                          >
-                            <p className="text-sm sm:text-base text-slate-700 pb-4 sm:pb-5 pl-2 leading-relaxed">
-                              {faq.answer}
-                            </p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-            </section>
           )}
 
           {/* Contact CTA Section */}
