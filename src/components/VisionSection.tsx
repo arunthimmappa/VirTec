@@ -21,10 +21,7 @@ export default function VisionSection() {
             </h2>
             <div className="space-y-4 text-base lg:text-lg leading-relaxed text-slate-700">
               <p>
-                At Virtec, our vision is to set industry benchmarks in the field of flow and heat measurement services.
-              </p>
-              <p>
-                We are committed to continuous technological advancement through{" "}
+                At Virtec, our vision is to set HVAC industry benchmarks in the field of Heat/Flow measurement services, VFDs, and IAQ Sensors. We are committed to continuous technological advancement through{" "}
                 <span className="text-primary-yellow">innovation</span>,{" "}
                 <span className="text-primary-yellow">precision</span>, and{" "}
                 <span className="text-primary-yellow">reliability</span>. By consistently enhancing our product portfolio with the latest solutions for the HVAC industry, we deliver advanced, practical, and sustainable technologies that meet evolving customer needs while supporting environmental responsibility.
