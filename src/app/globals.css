@@ -166,3 +166,30 @@ body {
     @apply leading-tight;
   }
 }
+
+/* Short viewport optimizations (for devices like Nest Hub 1024x600) */
+@media (min-width: 768px) and (max-height: 700px) {
+  /* Ensure hero fits in viewport */
+  section.relative.min-h-screen {
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  
+  /* Reduce excessive spacing for short viewports */
+  .space-y-6 > * + * {
+    margin-top: 0.75rem !important;
+  }
+  
+  .space-y-5 > * + * {
+    margin-top: 0.625rem !important;
+  }
+  
+  /* Compact grid gaps */
+  .gap-12 {
+    gap: 1.5rem !important;
+  }
+  
+  .gap-16 {
+    gap: 2rem !important;
+  }
+}

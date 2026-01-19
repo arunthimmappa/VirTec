@@ -24,10 +24,10 @@ export default function ServiceCard({ icon: Icon, title, description, index = 0 
           <Icon className="w-6 h-6 lg:w-7 lg:h-7 text-primary-yellow" />
         </div>
         <div className="flex-1 space-y-3">
-          <h3 className="font-display text-xl lg:text-2xl text-slate-900 font-semibold group-hover:text-primary-yellow transition-colors duration-300">
+          <h3 className="font-display text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-900 font-semibold group-hover:text-primary-yellow transition-colors duration-300">
             {title}
           </h3>
-          <p className="text-sm lg:text-base leading-relaxed text-slate-700">
+          <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg leading-relaxed text-slate-700">
             {description}
           </p>
         </div>

@@ -244,7 +244,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className={`w-full bg-slate-50/80 backdrop-blur-sm py-4 px-8 transition-all duration-300 sm:py-5 sm:px-10 lg:px-20 border-b border-slate-200/80 ${
+      <div className={`w-full bg-slate-50/80 backdrop-blur-sm py-2.5 px-4 transition-all duration-300 sm:py-3 sm:px-6 md:py-3.5 md:px-8 lg:py-4 lg:px-10 xl:px-12 border-b border-slate-200/80 ${
         scrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-[0_8px_40px_rgba(0,0,0,0.15)] border-slate-200' 
           : 'shadow-[0_4px_20px_rgba(0,0,0,0.08)]'
@@ -252,19 +252,19 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-3 text-xl text-slate-900 sm:text-2xl"
+            className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl text-slate-900"
           >
             <Image
               src="/virtec-logo.png"
               alt="Virtec Logo"
               width={180}
               height={180}
-              className="h-14 w-auto sm:h-14"
+              className="h-10 w-auto sm:h-12 md:h-14 lg:h-16"
               priority
             />
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex lg:gap-12">
+          <nav className="hidden items-center gap-4 md:flex md:gap-6 lg:gap-8 xl:gap-10">
             {navItems.map((item) =>
               item.categories ? (
                 <div 
@@ -306,7 +306,7 @@ export default function Navbar() {
                   {openDesktopDropdown === item.label && (
                     <div className="absolute left-0 top-full pt-5 z-50">
                       <div className="flex gap-2">
-                        <div className="w-[320px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur">
+                        <div className="w-full sm:w-[280px] md:w-[300px] lg:w-[320px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur">
                           <div className="flex flex-col gap-1">
                             {item.categories.map((category) => (
                               <div
@@ -343,7 +343,7 @@ export default function Navbar() {
                                 {/* Products Sub-Dropdown - Positioned relative to clicked category */}
                                 {category.products && category.products.length > 0 && (
                                   <div
-                                    className={`absolute left-full top-0 ml-5 w-[340px] rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition-all duration-200 ${
+                                    className={`absolute left-full top-0 ml-5 w-full sm:w-[300px] md:w-[320px] lg:w-[340px] rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition-all duration-200 ${
                                       expandedDesktopCategory === category.label
                                         ? 'opacity-100 pointer-events-auto z-10' 
                                         : 'opacity-0 pointer-events-none z-0'
@@ -417,7 +417,7 @@ export default function Navbar() {
                   {/* Children Dropdown */}
                   {openDesktopDropdown === item.label && (
                     <div className="absolute left-0 top-full pt-5 z-50">
-                      <div className="w-[380px] rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur">
+                      <div className="w-full sm:w-[320px] md:w-[360px] lg:w-[380px] rounded-2xl border border-slate-200 bg-white p-4 md:p-5 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur">
                         <div className="grid gap-2">
                           {item.children.map((child) => (
                             <Link
@@ -453,10 +453,10 @@ export default function Navbar() {
             )}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 md:flex">
             <Link
               href="mailto:sales@virtec.us"
-              className="rounded-full bg-primary-yellow px-6 py-2.5 text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95"
+              className="rounded-full bg-primary-yellow px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-2.5 text-sm sm:text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95 min-h-[44px] flex items-center justify-center"
             >
               Get a quote
             </Link>
@@ -464,7 +464,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 p-2.5 text-slate-700 transition hover:border-slate-400 lg:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 p-2.5 sm:p-3 text-slate-700 transition hover:border-slate-400 md:hidden min-h-[44px] min-w-[44px]"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             onClick={() => {
@@ -495,14 +495,14 @@ export default function Navbar() {
       </div>
 
       {mobileOpen ? (
-        <div className="w-full mt-0 rounded-2xl border-x-0 border-t-0 border-b border-slate-200 bg-white px-6 pb-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)] lg:hidden">
-          <div className="flex flex-col gap-4 pt-4">
+        <div className="w-full mt-0 rounded-2xl border-x-0 border-t-0 border-b border-slate-200 bg-white px-4 py-4 sm:px-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)] md:hidden">
+          <div className="flex flex-col gap-3 sm:gap-4 pt-2 sm:pt-4">
             {navItems.map((item) =>
               item.categories ? (
                 <div key={item.label} className="rounded-2xl border border-slate-200">
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between px-4 py-3 text-left text-base font-semibold text-slate-800"
+                    className="flex w-full items-center justify-between px-4 py-3 text-left text-sm sm:text-base font-semibold text-slate-800 min-h-[44px]"
                     onClick={() => {
                       setExpanded((current) => {
                         const newExpanded = current === item.label ? null : item.label;
@@ -522,7 +522,7 @@ export default function Navbar() {
                     </span>
                   </button>
                   {expanded === item.label ? (
-                    <div className="space-y-2 px-4 pb-4">
+                    <div className="space-y-2 px-3 sm:px-4 pb-3 sm:pb-4">
                       {item.categories.map((category) => (
                         <div key={category.label} className="rounded-xl border border-slate-100 bg-slate-50 overflow-hidden">
                           <div className="flex items-center justify-between">
@@ -583,7 +583,7 @@ export default function Navbar() {
                 <div key={item.label} className="rounded-2xl border border-slate-200">
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between px-4 py-3 text-left text-base font-semibold text-slate-800"
+                    className="flex w-full items-center justify-between px-4 py-3 text-left text-sm sm:text-base font-semibold text-slate-800 min-h-[44px]"
                     onClick={() =>
                       setExpanded((current) =>
                         current === item.label ? null : item.label,
@@ -622,7 +622,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block text-base font-semibold text-slate-800 px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition"
+                  className="block text-sm sm:text-base font-semibold text-slate-800 px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition min-h-[44px] flex items-center"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -632,14 +632,14 @@ export default function Navbar() {
             <div className="flex flex-col gap-3 pt-2">
               <Link
                 href="tel:+13045194567"
-                className="rounded-full border border-slate-300 px-4 py-2.5 text-center text-base text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+                className="rounded-full border border-slate-300 px-4 py-3 text-center text-sm sm:text-base text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 min-h-[44px] flex items-center justify-center"
                 onClick={() => setMobileOpen(false)}
               >
                 Contact us
               </Link>
               <Link
                 href="mailto:sales@virtec.us"
-                className="rounded-full bg-primary-yellow px-4 py-2.5 text-center text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95"
+                className="rounded-full bg-primary-yellow px-4 py-3 text-center text-sm sm:text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95 min-h-[44px] flex items-center justify-center"
                 onClick={() => setMobileOpen(false)}
               >
                 Get a quote
