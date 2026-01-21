@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 type NavProduct = {
   label: string;
@@ -47,29 +49,24 @@ const navItems: NavItem[] = [
             description: "Electromagnetic Flow Meter and Heat Meter - Inline Flanged",
           },
           {
-            label: "VIR-ISRT-800 Series",
-            href: "/products/vir-isrt-800",
+            label: "VIR-INSRT-800 Series",
+            href: "/products/vir-insrt-800",
             description: "Electromagnetic Flow Meter - Inline Insertion Type",
-          },
-          {
-            label: "LXC Series",
-            href: "/products/lxc-battery",
-            description: "Ultrasonic Flow Meter - Battery Operated",
           },
           {
             label: "VIR-850 Series",
             href: "/products/vir-850",
-            description: "Ultrasonic Flow Meter and Heat Meter - 24V",
+            description: "Ultrasonic Flow Meter -In Line Type",
           },
           {
-            label: "VIR-832 Insertion",
+            label: "VIR-832 M Insertion",
             href: "/products/vir-832-insertion",
             description: "Ultrasonic Flow Meter - Insertion Type",
           },
           {
-            label: "VIR-832 Clamp On",
+            label: "VIR-832 M Clamp On",
             href: "/products/vir-832-clamp",
-            description: "Non-Invasive Clamp On Meter",
+            description: "Non-Invasive Clamp On Flow  Meter",
           },
           {
             label: "LXC Water Meter",
@@ -81,22 +78,37 @@ const navItems: NavItem[] = [
       {
         label: "Heat Meters",
         href: "/products#heat-meters",
-        description: "Accurate thermal energy measurement for district systems",
+        description: "Thermal energy measurement",
         products: [
           {
-            label: "VIR UF",
+            label: "LXC Series",
+            href: "/products/lxc-series",
+            description: "Ultrasonic Heat Meter - Range 15mm to 300mm",
+          },
+          {
+            label: "VIR UF VIR-850 upto 800mm",
             href: "/products/vir-uf",
-            description: "Ultrasonic Heat Meter - Range 125mm to 800mm",
+            description: "Ultrasonic Heat Meter -In Line Type +Pt100/PT500 Temp Sensor",
           },
           {
-            label: "LXC Threaded Brass",
-            href: "/products/lxc-threaded",
-            description: "Ultrasonic Heat Meter - Threaded Brass Series",
+            label: "VIR-832 M Insertion",
+            href: "/products/vir-832-insertion-heat",
+            description: "Ultrasonic Heat Meter - Insertion Type+ Pt100/PT500 Temp Sensor",
           },
           {
-            label: "LXC Flange Series",
-            href: "/products/lxc-flange",
-            description: "Ultrasonic Heat Meter - Range 50mm to 300mm",
+            label: "VIR-832 M/VIR DX-900 Clamp On- upto 1200mm",
+            href: "/products/vir-832-clamp-heat",
+            description: "Non-Invasive Clamp On Heat  Meter +Pt100/PT500/PT-1000 Temp Sensor",
+          },
+          {
+            label: "VIR-800 Series",
+            href: "/products/vir-800-heat",
+            description: "Electromagnetic Heat Meter - Inline Flanged",
+          },
+          {
+            label: "VIR-INSRT-800 Series",
+            href: "/products/vir-insrt-800-heat",
+            description: "Electromagnetic Heat Meter - Inline Insertion Type",
           },
         ],
       },
@@ -132,43 +144,7 @@ const navItems: NavItem[] = [
             href: "/products/vir-iaq-6",
             description: "Multi Sensor Option",
           },
-          {
-            label: "IAQ Sensor with Display",
-            href: "/products/iaq-display",
-            description: "IAQ Sensor with Display",
-          },
-          {
-            label: "IAQ Sensor without Display",
-            href: "/products/iaq-no-display",
-            description: "IAQ Sensor without Display",
-          },
         ],
-      },
-    ],
-  },
-  {
-    label: "Solutions",
-    href: "/solutions",
-    children: [
-      {
-        label: "District Energy",
-        href: "/solutions/district-energy",
-        description: "Accurate metering for heating and cooling networks.",
-      },
-      {
-        label: "HVAC Optimization",
-        href: "/solutions/hvac-optimization",
-        description: "Smart balancing for buildings and campuses.",
-      },
-      {
-        label: "Water Utilities",
-        href: "/solutions/water-utilities",
-        description: "Loss reduction and flow transparency at scale.",
-      },
-      {
-        label: "Industrial IoT",
-        href: "/solutions/industrial-iot",
-        description: "Connect meters with analytics and control platforms.",
       },
     ],
   },
@@ -212,12 +188,35 @@ const chevronUp = (
 );
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const [openDesktopDropdown, setOpenDesktopDropdown] = useState<string | null>(null);
   const [expandedDesktopCategory, setExpandedDesktopCategory] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+
+  // Check if a nav item is active
+  const isActive = (href: string, label?: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href === "#" && label === "Products") {
+      // Show indicator for Products when on any products page
+      return pathname.startsWith("/products");
+    }
+    return pathname.startsWith(href);
+  };
+
+  // Check if indicator should be shown for a nav item
+  const shouldShowIndicator = (href: string, label?: string, hasDropdown?: boolean) => {
+    // If any dropdown is open, only show indicator for that dropdown item
+    if (openDesktopDropdown) {
+      return openDesktopDropdown === label;
+    }
+    // Otherwise, show based on active state
+    return isActive(href, label);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -278,7 +277,7 @@ export default function Navbar() {
                     setExpandedDesktopCategory(null);
                   }}
                 >
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 relative pb-1">
                     <button
                       type="button"
                       className={`text-base font-medium transition ${
@@ -301,6 +300,25 @@ export default function Navbar() {
                         {chevron}
                       </span>
                     </button>
+                    <AnimatePresence mode="wait">
+                      {shouldShowIndicator(item.href, item.label, true) && (
+                        <motion.div
+                          key={`indicator-${item.label}`}
+                          className="absolute bottom-0 left-1/2 h-0.5 bg-primary-yellow rounded-full"
+                          style={{ 
+                            transformOrigin: "center",
+                            width: "100%"
+                          }}
+                          initial={{ opacity: 0, scaleX: 0, x: "-50%" }}
+                          animate={{ opacity: 1, scaleX: 1, x: "-50%" }}
+                          exit={{ opacity: 0, scaleX: 0, x: "-50%" }}
+                          transition={{
+                            duration: 0.3,
+                            ease: "easeOut",
+                          }}
+                        />
+                      )}
+                    </AnimatePresence>
                   </div>
                   
                   {/* Main Categories Dropdown */}
@@ -390,7 +408,7 @@ export default function Navbar() {
                     setOpenDesktopDropdown(null);
                   }}
                 >
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 relative pb-1">
                     <button
                       type="button"
                       className={`text-base font-medium transition ${
@@ -413,6 +431,25 @@ export default function Navbar() {
                         {chevron}
                       </span>
                     </button>
+                    <AnimatePresence mode="wait">
+                      {shouldShowIndicator(item.href, item.label, true) && (
+                        <motion.div
+                          key={`indicator-${item.label}`}
+                          className="absolute bottom-0 left-1/2 h-0.5 bg-primary-yellow rounded-full"
+                          style={{ 
+                            transformOrigin: "center",
+                            width: "100%"
+                          }}
+                          initial={{ opacity: 0, scaleX: 0, x: "-50%" }}
+                          animate={{ opacity: 1, scaleX: 1, x: "-50%" }}
+                          exit={{ opacity: 0, scaleX: 0, x: "-50%" }}
+                          transition={{
+                            duration: 0.3,
+                            ease: "easeOut",
+                          }}
+                        />
+                      )}
+                    </AnimatePresence>
                   </div>
                   
                   {/* Children Dropdown */}
@@ -446,9 +483,28 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-base font-medium text-slate-700 transition hover:text-slate-900"
+                  className="relative text-base font-medium text-slate-700 transition hover:text-slate-900 pb-1"
                 >
                   {item.label}
+                  <AnimatePresence mode="wait">
+                    {shouldShowIndicator(item.href, item.label) && (
+                      <motion.div
+                        key={`indicator-${item.label}`}
+                        className="absolute bottom-0 left-1/2 h-0.5 bg-primary-yellow rounded-full"
+                        style={{ 
+                          transformOrigin: "center",
+                          width: "100%"
+                        }}
+                        initial={{ opacity: 0, scaleX: 0, x: "-50%" }}
+                        animate={{ opacity: 1, scaleX: 1, x: "-50%" }}
+                        exit={{ opacity: 0, scaleX: 0, x: "-50%" }}
+                        transition={{
+                          duration: 0.3,
+                          ease: "easeOut",
+                        }}
+                      />
+                    )}
+                  </AnimatePresence>
                 </Link>
               ),
             )}

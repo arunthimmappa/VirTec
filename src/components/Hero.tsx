@@ -20,94 +20,111 @@ import Link from "next/link";
 // Hero slides with Virtec products and content
 const heroSlides = [
   {
-    src: "/images/VFD-EM 750.jpg",
-    alt: "EM700 Series Mini Inverter",
-    badge: "Advanced HVAC Solutions",
-    title: "EM700 Series Mini Inverter",
-    subtitle: "Intelligent Motor Control for Ventilation Systems",
-    description:
-      "Advanced HVAC inverter technology delivering energy-efficient motor control with precision and reliability for modern ventilation systems.",
-    icon: Zap,
-    features: [
-      "Energy Efficient",
-      "Intelligent Control",
-      "Precision Performance",
-      "HVAC Optimized",
-    ],
-    ctaText: "View Product",
-    ctaLink: "#products",
-  },
-  {
     src: "/images/VIR-800-1.jpg",
-    alt: "Electromagnetic Flow Meter",
-    badge: "Precision Flow Measurement",
-    title: "Electromagnetic Flow Meter - VIR EM",
-    subtitle: "High-Precision Measurement (Range 6mm to 1000mm)",
+    alt: "Electromagnetic Flow Meter- VIR EM- 800 series",
+    badge: "Precision Flow Measurement upto 0.2% accuracy",
+    title: "Electromagnetic Flow Meter- VIR EM- 800 series",
+    subtitle: "Wide range (Range 6mm to 1000mm)",
     description:
       "State-of-the-art electromagnetic flow measurement technology delivering exceptional accuracy for water and HVAC applications worldwide.",
     icon: Factory,
     features: [
-      "Wide Range Coverage",
-      "99.7% Accuracy",
+      "Inline Flanged with PN 16 and PN 25 rating and  Insertion Type",
+      "Well structured programming Menu",
       "Low Maintenance",
       "Global Standards",
     ],
-    ctaText: "Explore Flow Meters",
-    ctaLink: "#flow-meters",
+    ctaText: "Explore EM Flow Meters",
+    ctaLink: "/products#flow-meters",
   },
   {
     src: "/images/VIR850 HEATMETER.jpg",
-    alt: "Ultrasonic Heat Meter",
-    badge: "Thermal Energy Excellence",
-    title: "Ultrasonic Heat Meter - VIR UF",
-    subtitle: "District Heating & Cooling Solutions (Range 125mm to 800mm)",
+    alt: "Ultrasonic Flow and Heat Meter- VIR UF 850 series",
+    badge: "Thermal Energy Measurement Simplified",
+    title: "Ultrasonic Flow and Heat Meter- VIR UF 850 series",
+    subtitle: "Low side and High Side measurement of Thermal Energy Dia : 125mm to 800 mm",
     description:
-      "Accurate thermal energy measurement for district heating and cooling systems, ensuring optimal energy management and sustainability.",
+      "Precision Flow & Thermal energy measurement for district heating and cooling systems, ensuring optimal energy management and sustainability.",
     icon: Award,
     features: [
-      "District Energy Ready",
-      "Long-Term Stability",
+      "Modbus+4-20mA for Chiller interface",
       "Low Power Consumption",
-      "ISO Certified",
+      "Options to Integrate with 3rd party BTU calculators with pulse output.",
     ],
     ctaText: "View Heat Meters",
-    ctaLink: "#heat-meters",
+    ctaLink: "/products#heat-meters",
+  },
+  {
+    src: "/images/WATER METER.jpg",
+    alt: "LXC Series Submetering Heat Meter",
+    badge: "Built in Mbus Communication",
+    title: "LXC Series Submetering Heat Meter - MID and NABL complied with PT1000 and option of PT 500 Temp Sensors",
+    subtitle: "Class 2 accuracy and .EN 1434-1:2022 being the latest general requirements version. Compliance ensures accuracy and reliability,",
+    description:
+      "Premium ultrasonic flow measurement solutions",
+    icon: Globe,
+    features: [
+      "IP-65",
+      "up to 500MM",
+      "Battery Operated- 6 Years and 16 Years option",
+      "Flow part built- in with one Temp Sensor",
+    ],
+    ctaText: "Explore Products",
+    ctaLink: "/products#products",
   },
   {
     src: "/images/VIR-832M- FLOW METER.jpg",
-    alt: "Clamp-On Flow Meter",
+    alt: "Clamp-On UltraSonic Flow/Heat  Meter",
     badge: "Non-Invasive Technology",
-    title: "VIR-832 Clamp-On Flow Meter",
+    title: "VIR-832M and VIR-DX-900",
     subtitle: "Non-Invasive Ultrasonic Measurement Solution",
     description:
       "Revolutionary clamp-on ultrasonic flow measurement technology that requires no pipe modification, ideal for retrofit installations.",
     icon: CheckCircle,
     features: [
       "Non-Invasive Installation",
-      "No Pipe Modification",
+      "Modbus Communication",
       "Easy Retrofit",
-      "Accurate Measurement",
+      "Accuracy :+/-1%",
     ],
     ctaText: "Learn More",
-    ctaLink: "#products",
+    ctaLink: "/products#products",
+  },
+  {
+    src: "/images/VFD-EM 750.jpg",
+    alt: "EM Series VFDs",
+    badge: "AHUS, CSUs, Pumps , Ventilation applications",
+    title: "EM760, EM 750, EM 700  Series",
+    subtitle: "ISimple to Advanced Control Functions for HVAC",
+    description:
+      "Advanced HVAC inverter technology delivering energy-efficient motor control with precision and reliability for modern ventilation systems.",
+    icon: Zap,
+    features: [
+      "Energy Efficient-Multiple PID loops",
+      "Intelligent Control- Mini DDC algorithms",
+      "Simple BMS Integration.",
+      "HVAC Optimized",
+    ],
+    ctaText: "View Product",
+    ctaLink: "/products#products",
   },
   {
     src: "/images/WATER METER.jpg",
-    alt: "Ultrasonic Electronic Flow Meter",
-    badge: "Global Leadership",
-    title: "Ultrasonic Electronic Flow Meter - LXC Series",
+    alt: "Ultrasonic Smart Water Meter",
+    badge: "Built in Mbus Communication",
+    title: "Water Meter - LXC Series",
     subtitle: "Precision Water Flow Measurement Technology",
     description:
-      "Premium ultrasonic flow measurement solutions trusted in 40+ countries, delivering exceptional accuracy and reliability for water applications.",
+      "Premium ultrasonic flow measurement solutions",
     icon: Globe,
     features: [
-      "40+ Countries",
-      "Premium Quality",
+      "IP-68",
+      "upto 500MM",
       "Advanced Technology",
       "Export Ready",
     ],
     ctaText: "Explore Products",
-    ctaLink: "#products",
+    ctaLink: "/products#products",
   },
 ];
 
@@ -213,7 +230,7 @@ export default function Hero() {
               <div className="max-w-7xl mx-auto pl-3 sm:pl-4 md:pl-6 lg:pl-8 pr-0">
                 <div className="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8 xl:gap-10 items-center">
                   {/* Left Column - Content */}
-                  <div className="w-full lg:w-2/5 space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+                  <div className="w-full lg:w-2/5">
                     <AnimatePresence mode="wait">
                       {selectedIndex === index && (
                         <motion.div
@@ -221,20 +238,20 @@ export default function Hero() {
                           initial="hidden"
                           animate="visible"
                           exit="hidden"
-                          className="space-y-5 sm:space-y-6 md:space-y-5 lg:space-y-7 xl:space-y-8"
+                          className="space-y-[1.2em] sm:space-y-[1.3em] md:space-y-[1.4em] lg:space-y-[1.5em]"
                         >
                           {/* Badge with transition */}
                           <motion.div
                             variants={textVariants}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-2.5 bg-primary-yellow/10 rounded-full text-slate-900 text-xs sm:text-sm md:text-sm lg:text-base uppercase tracking-[0.2em] border border-primary-yellow/30"
+                            className="inline-flex items-center gap-[0.5em] px-[0.875em] py-[0.5em] bg-primary-yellow/10 rounded-full text-slate-900 text-[0.7rem] sm:text-xs md:text-xs lg:text-xs uppercase tracking-[0.2em] border border-primary-yellow/30"
                           >
-                            <slide.icon size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-primary-yellow" />
+                            <slide.icon className="w-[1em] h-[1em] text-primary-yellow" />
                             <span>{slide.badge}</span>
                           </motion.div>
 
                           {/* Main Heading with staggered animation */}
-                          <div className="space-y-3 sm:space-y-4 md:space-y-3 lg:space-y-4 xl:space-y-5">
+                          <div className="space-y-[0.4em]">
                             <motion.h1
                               variants={textVariants}
                               transition={{ duration: 0.8, delay: 0.2 }}
@@ -265,7 +282,7 @@ export default function Hero() {
                           <motion.div
                             variants={textVariants}
                             transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex flex-wrap gap-x-4 gap-y-2 sm:gap-4 md:gap-3 lg:gap-4 xl:gap-5"
+                            className="flex flex-wrap gap-x-[1em] gap-y-[0.5em]"
                           >
                             {slide.features.map((feature, featureIndex) => (
                               <motion.div
@@ -276,11 +293,10 @@ export default function Hero() {
                                   duration: 0.5,
                                   delay: 0.6 + featureIndex * 0.1,
                                 }}
-                                className="flex items-center gap-2 text-slate-900"
+                                className="flex items-center gap-[0.5em] text-slate-900"
                               >
                                 <CheckCircle
-                                  size={16}
-                                  className="sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 text-primary-yellow flex-shrink-0"
+                                  className="w-[1em] h-[1em] text-primary-yellow flex-shrink-0"
                                 />
                                 <span className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base font-medium">
                                   {feature}
@@ -293,7 +309,7 @@ export default function Hero() {
                           <motion.div
                             variants={textVariants}
                             transition={{ duration: 0.8, delay: 0.7 }}
-                            className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-3 lg:gap-4 xl:gap-5 pt-6 sm:pt-6 md:pt-4 lg:pt-6 xl:pt-8"
+                            className="flex flex-col sm:flex-row gap-[0.75em] pt-[1.5em]"
                           >
                             <motion.div
                               whileHover={{ scale: 1.05 }}
@@ -302,10 +318,10 @@ export default function Hero() {
                             >
                               <Link
                                 href={slide.ctaLink || "#products"}
-                                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary-yellow px-6 py-3 sm:px-6 sm:py-2.5 md:px-7 md:py-2.5 lg:px-8 lg:py-3 xl:px-9 xl:py-3.5 2xl:px-10 2xl:py-4 text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95 font-semibold"
+                                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary-yellow px-[1.5em] py-[0.75em] text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95 font-semibold"
                               >
-                                {slide.ctaText || "Explore Products"}
-                                <ArrowRight size={18} className="sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 ml-2" />
+                               Learn More
+                                <ArrowRight className="w-[1em] h-[1em] ml-[0.5em]" />
                               </Link>
                             </motion.div>
                             <motion.div
@@ -315,9 +331,9 @@ export default function Hero() {
                             >
                               <Link
                                 href="#contact"
-                                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border-2 border-slate-300 bg-white text-slate-900 px-6 py-3 sm:px-6 sm:py-2.5 md:px-7 md:py-2.5 lg:px-8 lg:py-3 xl:px-9 xl:py-3.5 2xl:px-10 2xl:py-4 text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base transition hover:bg-slate-50 hover:border-slate-400 font-semibold"
+                                className="inline-flex w-full sm:w-auto items-center justify-center gap-[0.5em] rounded-full border-2 border-slate-300 bg-white text-slate-900 px-[1.5em] py-[0.75em] text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base transition hover:bg-slate-50 hover:border-slate-400 font-semibold"
                               >
-                                <Phone size={18} className="sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                                <Phone className="w-[1em] h-[1em]" />
                                 <span>Talk to an Engineer</span>
                               </Link>
                             </motion.div>
