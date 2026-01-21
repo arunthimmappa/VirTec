@@ -214,7 +214,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-white pt-12 pb-6 sm:pt-16 sm:pb-8 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12 xl:pt-28 xl:pb-14">
+    <section className="hero-section relative bg-white pt-14 pb-1 sm:pt-18 sm:pb-2 md:pt-14 md:pb-1 lg:pt-18 lg:pb-2 xl:pt-20 xl:pb-3 md:h-screen md:max-h-screen flex flex-col justify-center">
       {/* Embla Carousel */}
       <div
         className="relative w-full overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing"
@@ -228,17 +228,16 @@ export default function Hero() {
               style={{ minWidth: "100%" }}
             >
               <div className="max-w-7xl mx-auto pl-3 sm:pl-4 md:pl-6 lg:pl-8 pr-0">
-                <div className="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8 xl:gap-10 items-center">
-                  {/* Left Column - Content */}
-                  <div className="w-full lg:w-2/5">
-                    <AnimatePresence mode="wait">
+                <div className="flex flex-col lg:flex-row gap-2 md:gap-4 lg:gap-6 xl:gap-8 items-center">
+                  <div className="w-full lg:w-2/5 flex items-center">
+                    <AnimatePresence mode="sync">
                       {selectedIndex === index && (
                         <motion.div
                           key={index}
                           initial="hidden"
                           animate="visible"
                           exit="hidden"
-                          className="space-y-[1.2em] sm:space-y-[1.3em] md:space-y-[1.4em] lg:space-y-[1.5em]"
+                          className="space-y-[1em] sm:space-y-[1.1em] md:space-y-[1.2em] lg:space-y-[1.3em] w-full"
                         >
                           {/* Badge with transition */}
                           <motion.div
@@ -309,7 +308,7 @@ export default function Hero() {
                           <motion.div
                             variants={textVariants}
                             transition={{ duration: 0.8, delay: 0.7 }}
-                            className="flex flex-col sm:flex-row gap-[0.75em] pt-[1.5em]"
+                            className="flex flex-col sm:flex-row gap-[0.5em] pt-[0.75em]"
                           >
                             <motion.div
                               whileHover={{ scale: 1.05 }}
@@ -318,9 +317,9 @@ export default function Hero() {
                             >
                               <Link
                                 href={slide.ctaLink || "#products"}
-                                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary-yellow px-[1.5em] py-[0.75em] text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base text-slate-900 shadow-[0_14px_30px_rgba(255,203,8,0.35)] transition hover:brightness-95 font-semibold"
+                                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary-yellow px-[1.5em] py-[0.75em] text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base text-slate-900 transition hover:brightness-95 font-semibold"
                               >
-                               Learn More
+                                Learn More
                                 <ArrowRight className="w-[1em] h-[1em] ml-[0.5em]" />
                               </Link>
                             </motion.div>
@@ -330,11 +329,10 @@ export default function Hero() {
                               className="w-full sm:w-auto"
                             >
                               <Link
-                                href="#contact"
-                                className="inline-flex w-full sm:w-auto items-center justify-center gap-[0.5em] rounded-full border-2 border-slate-300 bg-white text-slate-900 px-[1.5em] py-[0.75em] text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base transition hover:bg-slate-50 hover:border-slate-400 font-semibold"
+                                href="mailto:sales@virtec.us"
+                                className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border-2 border-slate-300 bg-white text-slate-900 px-[1.5em] py-[0.75em] text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-base transition hover:bg-slate-50 hover:border-slate-400 font-semibold"
                               >
-                                <Phone className="w-[1em] h-[1em]" />
-                                <span>Talk to an Engineer</span>
+                                Contact Us
                               </Link>
                             </motion.div>
                           </motion.div>
@@ -349,7 +347,7 @@ export default function Hero() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="w-full lg:w-3/5 relative h-72 sm:h-96 md:h-[500px] lg:h-[650px] xl:h-[750px] 2xl:h-[850px]"
+                    className="w-full lg:w-3/5 relative h-64 sm:h-80 md:h-[380px] lg:h-[450px] xl:h-[550px] 2xl:h-[650px]"
                   >
                     <Image
                       src={slide.src}
@@ -368,27 +366,27 @@ export default function Hero() {
       </div>
 
       {/* Custom Navigation Arrows */}
-      <div className="hidden md:flex absolute inset-y-0 left-4 lg:left-6 xl:left-8 z-40 items-center">
+      <div className="hidden sm:flex absolute top-1/2 -translate-y-1/2 left-2 md:left-4 lg:left-6 z-40 items-center">
         <button
           onClick={scrollPrev}
-          className="group relative inline-flex h-12 w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-900 shadow-lg hover:bg-slate-50 hover:border-slate-300 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:ring-offset-2 focus:ring-offset-transparent min-h-[48px] min-w-[48px] lg:min-h-[56px] lg:min-w-[56px]"
+          className="group relative inline-flex h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:ring-offset-2 focus:ring-offset-transparent min-h-[40px] min-w-[40px] sm:min-h-[48px] sm:min-w-[48px] lg:min-h-[56px] lg:min-w-[56px]"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 transition-transform group-hover:-translate-x-1" />
+          <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 transition-transform group-hover:-translate-x-1" />
         </button>
       </div>
-      <div className="hidden md:flex absolute inset-y-0 right-4 lg:right-6 xl:right-8 z-40 items-center">
+      <div className="hidden sm:flex absolute top-1/2 -translate-y-1/2 right-2 md:right-4 lg:right-6 z-40 items-center">
         <button
           onClick={scrollNext}
-          className="group relative inline-flex h-12 w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-900 shadow-lg hover:bg-slate-50 hover:border-slate-300 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:ring-offset-2 focus:ring-offset-transparent min-h-[48px] min-w-[48px] lg:min-h-[56px] lg:min-w-[56px]"
+          className="group relative inline-flex h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:ring-offset-2 focus:ring-offset-transparent min-h-[40px] min-w-[40px] sm:min-h-[48px] sm:min-w-[48px] lg:min-h-[56px] lg:min-w-[56px]"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 transition-transform group-hover:translate-x-1" />
+          <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
 
       {/* Custom Pagination */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-4 lg:bottom-6 xl:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-2.5 md:gap-3 lg:gap-3.5 xl:gap-4 z-20">
+      <div className="hero-pagination absolute bottom-4 sm:bottom-6 md:bottom-4 lg:bottom-6 xl:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-2.5 md:gap-3 lg:gap-3.5 xl:gap-4 z-20">
         {heroSlides.map((_, index) => (
           <button
             key={index}
