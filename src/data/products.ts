@@ -63,18 +63,19 @@ export const products: Product[] = [
     ]
   },
   {
-    slug: "vir-isrt-800",
+    slug: "vir-insrt-800",
     title: "Electromagnetic Flow Meter",
-    subtitle: "VIR-ISRT-800 Series - Inline Insertion Type",
+    subtitle: "VIR-INSRT-800 Series - Inline Insertion Type",
     category: ["flow"],
     image: "/images/VIR-800-INSRT.jpg",
-    description: "The VIR-ISRT-800 Series is an inline insertion type electromagnetic flow meter designed for applications where inline installation is required. This series offers reliable flow measurement with insertion-type installation convenience.",
+    description: "The VIR-INSRT-800 Series is an inline insertion type electromagnetic flow meter designed for applications where inline installation is required. This series offers reliable flow measurement with insertion-type installation convenience.",
     keyFeatures: [
       "Inline insertion type design for easy installation",
       "Electromagnetic flow measurement technology",
       "Reliable and accurate flow measurement",
       "Suitable for various industrial applications"
     ],
+    // Missing catalog: add VIR-INSRT / insertion EM catalog to /public/catalogs/ when ready
     faqs: []
   },
   {
@@ -183,16 +184,18 @@ export const products: Product[] = [
   {
     slug: "vir-uf",
     title: "Ultrasonic Heat Meter",
-    subtitle: "VIR UF - Range 125mm to 800mm",
+    subtitle: "VIR UF VIR-850 upto 800mm - In Line Type + Pt100/PT500 Temp Sensor",
     category: ["heat"],
     image: "/images/VIR850 HEATMETER.jpg",
-    description: "The VIR UF Ultrasonic Heat Meter provides accurate thermal energy measurement for larger diameter pipes ranging from 125mm to 800mm. This meter is ideal for district heating and cooling systems requiring precise energy measurement.",
+    description: "The VIR UF Ultrasonic Heat Meter provides accurate thermal energy measurement for larger diameter pipes ranging from 125mm to 800mm. This meter is ideal for district heating and cooling systems requiring precise energy measurement. In-line type with Pt100/PT500 temperature sensor.",
     keyFeatures: [
       "Range from 125mm to 800mm",
       "Ultrasonic heat measurement technology",
       "Ideal for district heating and cooling systems",
-      "Accurate thermal energy measurement"
+      "Accurate thermal energy measurement",
+      "Pt100/PT500 temperature sensor"
     ],
+    brochurePath: "/catalogs/VIR-850-ULTRASONIC-Remote version-25603.pdf",
     faqs: []
   },
   {
@@ -208,6 +211,7 @@ export const products: Product[] = [
       "Reliable thermal energy measurement",
       "Secure threaded connection"
     ],
+    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
     faqs: []
   },
   {
@@ -223,15 +227,99 @@ export const products: Product[] = [
       "Accurate thermal energy measurement",
       "Suitable for medium-sized district systems"
     ],
+    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
     faqs: []
   },
-  // VSDs
+  {
+    slug: "lxc-series",
+    title: "Ultrasonic Heat Meter",
+    subtitle: "LXC Series - Range 15mm to 300mm",
+    category: ["heat"],
+    image: "/images/LXC-FAMILY.JPEG",
+    description: "The LXC Series ultrasonic heat meters offer MID and NABL compliant thermal energy measurement from 15mm to 300mm. Built-in M-Bus communication, Class 2 accuracy, and EN 1434-1:2022 compliance. IP-65 rated, battery operated with 6- or 16-year options, flow part with integrated temp sensor.",
+    keyFeatures: [
+      "Range 15mm to 300mm",
+      "MID and NABL complied, Class 2 accuracy",
+      "EN 1434-1:2022 compliant",
+      "Built-in M-Bus communication",
+      "IP-65, battery operated (6 or 16 years)",
+      "Flow part with integrated temp sensor"
+    ],
+    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
+    faqs: []
+  },
+  {
+    slug: "vir-832-insertion-heat",
+    title: "Ultrasonic Heat Meter",
+    subtitle: "VIR-832 M Insertion Type + Pt100/PT500 Temp Sensor",
+    category: ["heat"],
+    image: "/images/VIR-INSRT-3.jpg",
+    description: "The VIR-832 M Insertion Type ultrasonic heat meter combines insertion-type flow measurement with Pt100/PT500 temperature sensors for accurate thermal energy measurement. Non-invasive installation with flexible pipe size coverage.",
+    keyFeatures: [
+      "Insertion type installation",
+      "Pt100/PT500 temperature sensor",
+      "Ultrasonic heat measurement",
+      "Non-invasive, flexible for various pipe sizes"
+    ],
+    brochurePath: "/catalogs/VIR-832-insertion25103.pdf",
+    faqs: []
+  },
+  {
+    slug: "vir-832-clamp-heat",
+    title: "Clamp On Heat Meter",
+    subtitle: "VIR-832 M / VIR-DX-900 - upto 1200mm + Pt100/PT500/PT-1000 Temp Sensor",
+    category: ["heat"],
+    image: "/images/CLAMP ON DETECTORS FOR VIR-DX-900.jpg",
+    description: "Non-invasive clamp-on ultrasonic heat meter. VIR-832 M and VIR-DX-900 models for pipes up to 1200mm, with Pt100/PT500/PT-1000 temperature sensor options. No pipe cutting or flow interruption required.",
+    keyFeatures: [
+      "Non-invasive clamp-on installation",
+      "Up to 1200mm pipe diameter",
+      "Pt100/PT500/PT-1000 temperature sensor options",
+      "VIR-832 M and VIR-DX-900"
+    ],
+    brochurePath: "/catalogs/VIR-832-VIR-832M-CLAMP ON-25818.PDF",
+    faqs: []
+  },
+  {
+    slug: "vir-800-heat",
+    title: "Electromagnetic Heat Meter",
+    subtitle: "VIR-800 Series - Inline Flanged",
+    category: ["heat"],
+    image: "/images/VIR-800-2.jpg",
+    description: "Electromagnetic heat meter for thermal energy measurement. Same detector and converter as VIR-800 flow meter, with heat calculation. Inline flanged, PN 16/25. Range 6mm to 1000mm. Factory-tested and calibrated.",
+    keyFeatures: [
+      "Electromagnetic heat measurement",
+      "Inline flanged, PN 16 and PN 25",
+      "Range 6mm to 1000mm",
+      "Factory-tested and calibrated",
+      "Well-structured programming menu"
+    ],
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC FLOW METER ONLY-24sept.pdf",
+    faqs: []
+  },
+  {
+    slug: "vir-insrt-800-heat",
+    title: "Electromagnetic Heat Meter",
+    subtitle: "VIR-INSRT-800 Series - Inline Insertion Type",
+    category: ["heat"],
+    image: "/images/VIR800-INSRT2.jpg",
+    description: "Electromagnetic heat meter, inline insertion type. Thermal energy measurement with insertion-type installation. Suitable for applications where inline flanged mounting is not required.",
+    keyFeatures: [
+      "Inline insertion type",
+      "Electromagnetic heat measurement",
+      "Easy installation",
+      "Suitable for various heating applications"
+    ],
+    // Missing catalog: add VIR-INSRT insertion EM catalog to /public/catalogs/ when ready
+    faqs: []
+  },
+  // VSDs — Missing catalog: add VFD/EM series catalog to /public/catalogs/ when ready
   {
     slug: "em-700",
     title: "Eco EM-700",
     subtitle: "VSD for Ventilation",
     category: ["vsd"],
-    image: "/images/VFD-EM 750.jpg",
+    image: "/images/VFD.jpg",
     description: "The Eco EM-700 Variable Speed Drive is designed specifically for ventilation applications. This VSD provides efficient motor control for ventilation systems, optimizing energy consumption while maintaining optimal air flow.",
     keyFeatures: [
       "Designed for ventilation applications",
@@ -246,7 +334,7 @@ export const products: Product[] = [
     title: "Basic EM-750 Series",
     subtitle: "VSD for AHU",
     category: ["vsd"],
-    image: "/images/VFD-EM 750.jpg",
+    image: "/images/VFD-EM750-SOLO.JPG",
     description: "The Basic EM-750 Series Variable Speed Drive is tailored for Air Handling Unit (AHU) applications. This VSD provides essential control functions for AHU systems, ensuring reliable and efficient operation.",
     keyFeatures: [
       "Designed for Air Handling Units (AHU)",
@@ -293,7 +381,7 @@ export const products: Product[] = [
       }
     ]
   },
-  // IAQ Sensors
+  // IAQ Sensors — Missing catalog: add IAQ sensor catalog to /public/catalogs/ when ready
   {
     slug: "vir-iaq-6",
     title: "VIR-IAQ-6-Series",

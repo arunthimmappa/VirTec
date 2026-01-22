@@ -36,17 +36,19 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
             </div>
 
             {/* Product Image */}
-            <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200">
+            <div className="relative w-full -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10">
               {product.image ? (
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
-                />
+                <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px]">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-contain"
+                    sizes="100vw"
+                  />
+                </div>
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center bg-slate-50">
                   <div className="text-center space-y-3 px-4">
                     <div className="w-20 h-20 mx-auto rounded-full bg-primary-yellow/20 flex items-center justify-center">
                       <svg
@@ -77,7 +79,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
           </div>
 
           {/* Overview Section */}
-          <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+          <div className="bg-slate-50 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
             <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
               <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-slate-900 mb-4 sm:mb-6">
                 Overview
@@ -104,7 +106,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-start gap-3 sm:gap-4 bg-white border border-slate-200 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
+                    className="flex items-start gap-3 sm:gap-4 bg-white p-4 sm:p-6 transition-all duration-300"
                   >
                     <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary-yellow/20 flex items-center justify-center mt-0.5">
                       <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary-yellow" />
@@ -120,7 +122,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
 
           {/* Specifications Section */}
           {product.specifications && product.specifications.length > 0 && (
-            <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+            <div className="bg-slate-50 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
               <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-slate-900 mb-4 sm:mb-6">
                 Specifications
               </h2>
@@ -136,7 +138,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
           )}
 
           {/* Download Brochure Section */}
-          <div className="bg-gradient-to-r from-primary-yellow/10 to-primary-yellow/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 text-center">
+          <div className="bg-gradient-to-r from-primary-yellow/10 to-primary-yellow/5 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 text-center">
             <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
               <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-slate-900">
                 Download Brochure
@@ -182,7 +184,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-slate-50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 space-y-2 border border-slate-200"
+                  className="bg-slate-50 p-3 sm:p-4 md:p-6 lg:p-8 space-y-2"
                 >
                   {product.faqs.map((faq, index) => (
                     <motion.div
@@ -231,7 +233,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
           )}
 
           {/* Contact CTA Section */}
-          <div className="bg-slate-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 text-center">
+          <div className="bg-slate-900 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 text-center">
             <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
               <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-white">
                 Interested in this Product?

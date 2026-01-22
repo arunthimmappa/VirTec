@@ -34,8 +34,8 @@ const heroSlides = [
       "Low Maintenance",
       "Global Standards",
     ],
-    ctaText: "Explore EM Flow Meters",
-    ctaLink: "/products#flow-meters",
+    ctaText: "Learn More",
+    ctaLink: "/products/vir-800",
   },
   {
     src: "/images/VIR850 HEATMETER.jpg",
@@ -51,8 +51,8 @@ const heroSlides = [
       "Low Power Consumption",
       "Options to Integrate with 3rd party BTU calculators with pulse output.",
     ],
-    ctaText: "View Heat Meters",
-    ctaLink: "/products#heat-meters",
+    ctaText: "Learn More",
+    ctaLink: "/products/vir-uf",
   },
   {
     src: "/images/LXC-FAMILY.jpeg",
@@ -69,8 +69,8 @@ const heroSlides = [
       "Battery Operated- 6 Years and 16 Years option",
       "Flow part built- in with one Temp Sensor",
     ],
-    ctaText: "Explore Products",
-    ctaLink: "/products#products",
+    ctaText: "Learn More",
+    ctaLink: "/products/lxc-series",
   },
   {
     src: "/images/VIR-832M- FLOW METER.jpg",
@@ -88,7 +88,7 @@ const heroSlides = [
       "Accuracy :+/-1%",
     ],
     ctaText: "Learn More",
-    ctaLink: "/products#products",
+    ctaLink: "/products/vir-832-clamp",
   },
   {
     src: "/images/VFD FAMILY.jpg",
@@ -105,8 +105,8 @@ const heroSlides = [
       "Simple BMS Integration.",
       "HVAC Optimized",
     ],
-    ctaText: "View Product",
-    ctaLink: "/products#products",
+    ctaText: "Learn More",
+    ctaLink: "/products/em-760",
   },
   {
     src: "/images/WATER METER.jpg",
@@ -123,8 +123,8 @@ const heroSlides = [
       "Advanced Technology",
       "Export Ready",
     ],
-    ctaText: "Explore Products",
-    ctaLink: "/products#products",
+    ctaText: "Learn More",
+    ctaLink: "/products/lxc-water",
   },
 ];
 

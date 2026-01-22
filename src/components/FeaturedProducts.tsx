@@ -4,17 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-
-type ProductCategory = "flow" | "heat" | "vsd" | "iaq";
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  category: ProductCategory[];
-  image?: string;
-}
+import { getProductsByCategory } from "@/lib/products";
+import type { ProductCategory } from "@/lib/products";
 
 const categories: { id: ProductCategory; name: string; description: string }[] = [
   {
@@ -39,128 +30,10 @@ const categories: { id: ProductCategory; name: string; description: string }[] =
   },
 ];
 
-const products: Product[] = [
-  // Flow Meters
-  {
-    id: "vir-800",
-    name: "Electromagnetic Flow Meter and Heat Meter - VIR-800 Series",
-    description: "Inline Flanged Connection",
-    category: ["flow", "heat"],
-    image: "/images/VIR-800-1.jpg",
-  },
-  {
-    id: "vir-isrt-800",
-    name: "Electromagnetic Flow Meter - VIR-ISRT-800 Series",
-    description: "Inline Insertion Type",
-    category: ["flow"],
-    image: "/images/VIR-800-INSRT.jpg",
-  },
-  {
-    id: "lxc-battery",
-    name: "Ultrasonic Flow Meter and Heat Meter - LXC Series",
-    description: "Inline Flanged Connection - Battery Operated",
-    category: ["flow", "heat"],
-    image: "/images/LXC-65.jpg",
-  },
-  {
-    id: "vir-850",
-    name: "Ultrasonic Flow Meter and Heat Meter - VIR-850 Series",
-    description: "Inline Flanged Connection - 24V",
-    category: ["flow", "heat"],
-    image: "/images/VIR-850 FLOW METER.jpg",
-  },
-  {
-    id: "vir-832-insertion",
-    name: "Ultrasonic Flow Meter - VIR-832",
-    description: "Insertion Type",
-    category: ["flow"],
-    image: "/images/VIR-INSRT-3.jpg",
-  },
-  {
-    id: "vir-832-clamp",
-    name: "Clamp On Meter - Non Invasive",
-    description: "VIR-832, VIR-DX-900, VIR-1000",
-    category: ["flow"],
-    image: "/images/VIR-832M- FLOW METER.jpg",
-  },
-  {
-    id: "lxc-water",
-    name: "Ultrasonic Water Meter - LXC Series",
-    description: "Electronic Flow Meter for Water",
-    category: ["flow"],
-    image: "/images/WATER METER.jpg",
-  },
-  // Heat Meters
-  {
-    id: "vir-uf",
-    name: "Ultrasonic Heat Meter - VIR UF",
-    description: "Range 125mm to 800mm",
-    category: ["heat"],
-    image: "/images/VIR850 HEATMETER.jpg",
-  },
-  {
-    id: "lxc-threaded",
-    name: "Ultrasonic Heat Meter - LXC Threaded Brass Series",
-    description: "Threaded Brass Series",
-    category: ["heat"],
-    image: "/images/LXC-THREADED.jpg",
-  },
-  {
-    id: "lxc-flange",
-    name: "Ultrasonic Heat Meter - LXC Flange Series",
-    description: "Range 50mm to 300mm",
-    category: ["heat"],
-    image: "/images/LXC BRASS FLANGE.jpg",
-  },
-  // VSDs
-  {
-    id: "em-700",
-    name: "Eco EM-700",
-    description: "For Ventilation",
-    category: ["vsd"],
-    image: "/images/VFD-EM 750.jpg",
-  },
-  {
-    id: "em-750",
-    name: "Basic EM-750 Series",
-    description: "For AHU",
-    category: ["vsd"],
-    image: "/images/VFD-EM 750.jpg",
-  },
-  {
-    id: "em-760",
-    name: "Advanced EM-760",
-    description: "For Advanced control logic in AHU and Pumps",
-    category: ["vsd"],
-    image: "/images/VFD-EM-760 SOLO.jpg",
-  },
-  // IAQ Sensors
-  {
-    id: "vir-iaq-6",
-    name: "VIR-IAQ-6-Series",
-    description: "Multi Sensor Option",
-    category: ["iaq"],
-  },
-  {
-    id: "iaq-display",
-    name: "IAQ Sensor",
-    description: "With Display",
-    category: ["iaq"],
-  },
-  {
-    id: "iaq-no-display",
-    name: "IAQ Sensor",
-    description: "Without Display",
-    category: ["iaq"],
-  },
-];
-
 export default function FeaturedProducts() {
   const [activeCategory, setActiveCategory] = useState<ProductCategory>("flow");
 
-  const filteredProducts = products.filter((product) =>
-    product.category.includes(activeCategory)
-  );
+  const filteredProducts = getProductsByCategory(activeCategory);
 
   return (
     <section id="products" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
@@ -217,44 +90,49 @@ export default function FeaturedProducts() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
           >
             {filteredProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] hover:border-primary-yellow/30 transition-all duration-300 bg-white"
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}`}
+                className="block group"
               >
-                {/* Product Image */}
-                <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-slate-100">
-                  {product.image ? (
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-yellow/20 to-slate-900/10">
-                      <div className="text-3xl sm:text-4xl font-display text-primary-yellow/30">V</div>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] hover:border-primary-yellow/30 transition-all duration-300 bg-white cursor-pointer h-full"
+                >
+                  {/* Product Image */}
+                  <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-slate-100">
+                    {product.image ? (
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-yellow/20 to-slate-900/10">
+                        <div className="text-3xl sm:text-4xl font-display text-primary-yellow/30">V</div>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
 
-                {/* Product Info */}
-                <div className="p-4 sm:p-5 md:p-6">
-                  <h3 className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-900 mb-2 group-hover:text-primary-yellow transition-colors leading-tight">
-                    {product.name}
-                  </h3>
-                  {product.description && (
-                    <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-600 font-medium line-clamp-2 sm:line-clamp-3">
-                      {product.description}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
+                  {/* Product Info */}
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <h3 className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-900 mb-2 group-hover:text-primary-yellow transition-colors leading-tight">
+                      {product.title}
+                    </h3>
+                    {(product.subtitle || product.description) && (
+                      <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-600 font-medium line-clamp-2 sm:line-clamp-3">
+                        {product.subtitle || product.description}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </AnimatePresence>
