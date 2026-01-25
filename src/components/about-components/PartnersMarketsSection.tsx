@@ -9,10 +9,6 @@ const markets = [
     description: "Serving customers across the United States and Canada with comprehensive solutions and local support.",
   },
   {
-    region: "Europe",
-    description: "Strong presence in European markets with compliance to regional standards and regulations.",
-  },
-  {
     region: "Asia Pacific",
     description: "Growing network of partners and customers across Asia Pacific regions.",
   },

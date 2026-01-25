@@ -1,4 +1,6 @@
-export type ProductCategory = "flow" | "heat" | "vsd" | "iaq";
+import type { ProductCategory } from "./navbar-products";
+
+export type { ProductCategory };
 
 export interface ProductFeature {
   title: string;
@@ -25,12 +27,33 @@ export interface Product {
   specifications?: string[];
 }
 
+// Mapping of slugs to Navbar labels (source of truth from Navbar)
+const navbarLabelMap: Record<string, string> = {
+  "vir-800": "VIR-800 Series",
+  "vir-insrt-800": "VIR-INSRT-800 Series",
+  "vir-850": "VIR-850 Series",
+  "vir-832-insertion": "VIR-832 M Insertion",
+  "vir-832-clamp": "VIR-832 M Clamp On",
+  "lxc-water": "LXC Water Meter",
+  "lxc-series": "LXC Series",
+  "vir-uf": "VIR UF VIR-850 upto 800mm",
+  "vir-832-insertion-heat": "VIR-832 M Insertion",
+  "vir-832-clamp-heat": "VIR-832 M/VIR DX-900 Clamp On- upto 1200mm",
+  "vir-800-heat": "VIR-800 Series",
+  "vir-insrt-800-heat": "VIR-INSRT-800 Series",
+  "em-700": "Eco EM-700",
+  "em-750": "Basic EM-750 Series",
+  "em-760": "Advanced EM-760",
+  "vir-iaq-6": "VIR-IAQ-6-Series",
+};
+
+// Product data - only includes products from Navbar, titles match Navbar exactly
 export const products: Product[] = [
   // Flow Meters
   {
     slug: "vir-800",
-    title: "Electromagnetic Flow Meter",
-    subtitle: "VIR EM (Range 6mm to 1000mm)",
+    title: navbarLabelMap["vir-800"], // "VIR-800 Series"
+    subtitle: "Electromagnetic Flow Meter and Heat Meter - Inline Flanged",
     category: ["flow"],
     image: "/images/VIR-800-1.jpg",
     description: "Electromagnetic Flow Meters are intended for fluid measurement in most industries including Water, Wastewater, Food & Beverage, Pharmaceutical and Chemical. There are two basic components of Virtec Electromagnetic Flow Meter: 1. Detector & 2. Converter. Detector includes the flow tube, isolating linear and measuring electrodes. Converter is an electronic device responsible for signal processing, flow calculation, display and output signals. Our Electronic Flow Meters are factory-tested and calibrated. A calibration certificate is included in the shipment of each meter.",
@@ -64,8 +87,8 @@ export const products: Product[] = [
   },
   {
     slug: "vir-insrt-800",
-    title: "Electromagnetic Flow Meter",
-    subtitle: "VIR-INSRT-800 Series - Inline Insertion Type",
+    title: navbarLabelMap["vir-insrt-800"], // "VIR-INSRT-800 Series"
+    subtitle: "Electromagnetic Flow Meter - Inline Insertion Type",
     category: ["flow"],
     image: "/images/VIR-800-INSRT.jpg",
     description: "The VIR-INSRT-800 Series is an inline insertion type electromagnetic flow meter designed for applications where inline installation is required. This series offers reliable flow measurement with insertion-type installation convenience.",
@@ -79,25 +102,9 @@ export const products: Product[] = [
     faqs: []
   },
   {
-    slug: "lxc-battery",
-    title: "Ultrasonic Flow Meter",
-    subtitle: "LXC Series - Battery Operated",
-    category: ["flow"],
-    image: "/images/LXC-65.jpg",
-    description: "The LXC Series Ultrasonic Flow Meter offers battery-operated convenience for applications where power supply may be limited. This portable solution provides accurate flow measurement without requiring external power connections.",
-    keyFeatures: [
-      "Battery-operated for portable use",
-      "Ultrasonic flow measurement technology",
-      "No external power supply required",
-      "Ideal for remote or mobile applications"
-    ],
-    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
-    faqs: []
-  },
-  {
     slug: "vir-850",
-    title: "Ultrasonic Flow Meter and Heat Meter",
-    subtitle: "VIR-850 Series - 24V",
+    title: navbarLabelMap["vir-850"], // "VIR-850 Series"
+    subtitle: "Ultrasonic Flow Meter -In Line Type",
     category: ["flow", "heat"],
     image: "/images/VIR-850 FLOW METER.jpg",
     description: "The VIR-850 Series is a versatile ultrasonic flow meter and heat meter operating on 24V power supply. This series combines flow measurement with thermal energy measurement capabilities for comprehensive monitoring.",
@@ -112,8 +119,8 @@ export const products: Product[] = [
   },
   {
     slug: "vir-832-insertion",
-    title: "Ultrasonic Flow Meter",
-    subtitle: "VIR-832 Insertion Type",
+    title: navbarLabelMap["vir-832-insertion"], // "VIR-832 M Insertion"
+    subtitle: "Ultrasonic Flow Meter - Insertion Type",
     category: ["flow"],
     image: "/images/VIR-INSRT-3.jpg",
     description: "The VIR-832 Insertion Type ultrasonic flow meter provides non-invasive flow measurement with insertion probe installation. This design offers flexibility for various pipe sizes and applications.",
@@ -128,8 +135,8 @@ export const products: Product[] = [
   },
   {
     slug: "vir-832-clamp",
-    title: "Clamp On Meter",
-    subtitle: "Non-Invasive - VIR-832, VIR-DX-900",
+    title: navbarLabelMap["vir-832-clamp"], // "VIR-832 M Clamp On"
+    subtitle: "Non-Invasive Clamp On Flow  Meter",
     category: ["flow"],
     image: "/images/VIR-832M- FLOW METER.jpg",
     description: "The VIR-832 and VIR-DX-900 Clamp On meters offer completely non-invasive flow measurement. These meters can be installed without cutting pipes or interrupting flow, making them ideal for retrofit applications.",
@@ -145,8 +152,8 @@ export const products: Product[] = [
   },
   {
     slug: "lxc-water",
-    title: "Ultrasonic Electronic Flow Meter for Water",
-    subtitle: "LXC Series",
+    title: navbarLabelMap["lxc-water"], // "LXC Water Meter"
+    subtitle: "Electronic Flow Meter for Water",
     category: ["flow"],
     image: "/images/WATER METER.jpg",
     description: "The Virtec Ultrasonic Heat Meter is a cutting-edge, accurate heat meter with a static flow sensor that ensures excellent measurement precision and long operational life regardless of where it is mounted. The ultrasonic heat meter is designed in a modular manner to measure the usage of heating in which water serves as the heat/cool bearing medium. The flow sensor has a sturdy brass construction and may be used with pressure scopes with threaded or flanged connections. It utilizes ultrasonic measurement technologies as well as microprocessor technology. Because all computation and flow monitoring circuits are developed on a single board, the accuracy and dependability are remarkable.",
@@ -182,58 +189,9 @@ export const products: Product[] = [
   },
   // Heat Meters
   {
-    slug: "vir-uf",
-    title: "Ultrasonic Heat Meter",
-    subtitle: "VIR UF VIR-850 upto 800mm - In Line Type + Pt100/PT500 Temp Sensor",
-    category: ["heat"],
-    image: "/images/VIR850 HEATMETER.jpg",
-    description: "The VIR UF Ultrasonic Heat Meter provides accurate thermal energy measurement for larger diameter pipes ranging from 125mm to 800mm. This meter is ideal for district heating and cooling systems requiring precise energy measurement. In-line type with Pt100/PT500 temperature sensor.",
-    keyFeatures: [
-      "Range from 125mm to 800mm",
-      "Ultrasonic heat measurement technology",
-      "Ideal for district heating and cooling systems",
-      "Accurate thermal energy measurement",
-      "Pt100/PT500 temperature sensor"
-    ],
-    brochurePath: "/catalogs/VIR-850-ULTRASONIC-Remote version-25603.pdf",
-    faqs: []
-  },
-  {
-    slug: "lxc-threaded",
-    title: "Ultrasonic Heat Meter",
-    subtitle: "LXC Threaded Brass Series",
-    category: ["heat"],
-    image: "/images/LXC-THREADED.jpg",
-    description: "The LXC Threaded Brass Series ultrasonic heat meter features threaded brass construction for reliable thermal energy measurement. The threaded connection provides secure installation for various heating system applications.",
-    keyFeatures: [
-      "Threaded brass construction",
-      "Ultrasonic heat measurement",
-      "Reliable thermal energy measurement",
-      "Secure threaded connection"
-    ],
-    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
-    faqs: []
-  },
-  {
-    slug: "lxc-flange",
-    title: "Ultrasonic Heat Meter",
-    subtitle: "LXC Flange Series - Range 50mm to 300mm",
-    category: ["heat"],
-    image: "/images/LXC BRASS FLANGE.jpg",
-    description: "The LXC Flange Series ultrasonic heat meter offers flanged connection design for pipes ranging from 50mm to 300mm. This series provides accurate thermal energy measurement for medium-sized district heating and cooling applications.",
-    keyFeatures: [
-      "Range from 50mm to 300mm",
-      "Flanged connection design",
-      "Accurate thermal energy measurement",
-      "Suitable for medium-sized district systems"
-    ],
-    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
-    faqs: []
-  },
-  {
     slug: "lxc-series",
-    title: "Ultrasonic Heat Meter",
-    subtitle: "LXC Series - Range 15mm to 300mm",
+    title: navbarLabelMap["lxc-series"], // "LXC Series"
+    subtitle: "Ultrasonic Heat Meter - Range 15mm to 300mm",
     category: ["heat"],
     image: "/images/LXC-FAMILY.JPEG",
     description: "The LXC Series ultrasonic heat meters offer MID and NABL compliant thermal energy measurement from 15mm to 300mm. Built-in M-Bus communication, Class 2 accuracy, and EN 1434-1:2022 compliance. IP-65 rated, battery operated with 6- or 16-year options, flow part with integrated temp sensor.",
@@ -249,9 +207,26 @@ export const products: Product[] = [
     faqs: []
   },
   {
+    slug: "vir-uf",
+    title: navbarLabelMap["vir-uf"], // "VIR UF VIR-850 upto 800mm"
+    subtitle: "Ultrasonic Heat Meter -In Line Type +Pt100/PT500 Temp Sensor",
+    category: ["heat"],
+    image: "/images/VIR850 HEATMETER.jpg",
+    description: "The VIR UF Ultrasonic Heat Meter provides accurate thermal energy measurement for larger diameter pipes ranging from 125mm to 800mm. This meter is ideal for district heating and cooling systems requiring precise energy measurement. In-line type with Pt100/PT500 temperature sensor.",
+    keyFeatures: [
+      "Range from 125mm to 800mm",
+      "Ultrasonic heat measurement technology",
+      "Ideal for district heating and cooling systems",
+      "Accurate thermal energy measurement",
+      "Pt100/PT500 temperature sensor"
+    ],
+    brochurePath: "/catalogs/VIR-850-ULTRASONIC-Remote version-25603.pdf",
+    faqs: []
+  },
+  {
     slug: "vir-832-insertion-heat",
-    title: "Ultrasonic Heat Meter",
-    subtitle: "VIR-832 M Insertion Type + Pt100/PT500 Temp Sensor",
+    title: navbarLabelMap["vir-832-insertion-heat"], // "VIR-832 M Insertion"
+    subtitle: "Ultrasonic Heat Meter - Insertion Type+ Pt100/PT500 Temp Sensor",
     category: ["heat"],
     image: "/images/VIR-INSRT-3.jpg",
     description: "The VIR-832 M Insertion Type ultrasonic heat meter combines insertion-type flow measurement with Pt100/PT500 temperature sensors for accurate thermal energy measurement. Non-invasive installation with flexible pipe size coverage.",
@@ -266,8 +241,8 @@ export const products: Product[] = [
   },
   {
     slug: "vir-832-clamp-heat",
-    title: "Clamp On Heat Meter",
-    subtitle: "VIR-832 M / VIR-DX-900 - upto 1200mm + Pt100/PT500/PT-1000 Temp Sensor",
+    title: navbarLabelMap["vir-832-clamp-heat"], // "VIR-832 M/VIR DX-900 Clamp On- upto 1200mm"
+    subtitle: "Non-Invasive Clamp On Heat  Meter +Pt100/PT500/PT-1000 Temp Sensor",
     category: ["heat"],
     image: "/images/CLAMP ON DETECTORS FOR VIR-DX-900.jpg",
     description: "Non-invasive clamp-on ultrasonic heat meter. VIR-832 M and VIR-DX-900 models for pipes up to 1200mm, with Pt100/PT500/PT-1000 temperature sensor options. No pipe cutting or flow interruption required.",
@@ -282,8 +257,8 @@ export const products: Product[] = [
   },
   {
     slug: "vir-800-heat",
-    title: "Electromagnetic Heat Meter",
-    subtitle: "VIR-800 Series - Inline Flanged",
+    title: navbarLabelMap["vir-800-heat"], // "VIR-800 Series"
+    subtitle: "Electromagnetic Heat Meter - Inline Flanged",
     category: ["heat"],
     image: "/images/VIR-800-2.jpg",
     description: "Electromagnetic heat meter for thermal energy measurement. Same detector and converter as VIR-800 flow meter, with heat calculation. Inline flanged, PN 16/25. Range 6mm to 1000mm. Factory-tested and calibrated.",
@@ -299,8 +274,8 @@ export const products: Product[] = [
   },
   {
     slug: "vir-insrt-800-heat",
-    title: "Electromagnetic Heat Meter",
-    subtitle: "VIR-INSRT-800 Series - Inline Insertion Type",
+    title: navbarLabelMap["vir-insrt-800-heat"], // "VIR-INSRT-800 Series"
+    subtitle: "Electromagnetic Heat Meter - Inline Insertion Type",
     category: ["heat"],
     image: "/images/VIR800-INSRT2.jpg",
     description: "Electromagnetic heat meter, inline insertion type. Thermal energy measurement with insertion-type installation. Suitable for applications where inline flanged mounting is not required.",
@@ -313,10 +288,10 @@ export const products: Product[] = [
     // Missing catalog: add VIR-INSRT insertion EM catalog to /public/catalogs/ when ready
     faqs: []
   },
-  // VSDs — Missing catalog: add VFD/EM series catalog to /public/catalogs/ when ready
+  // VSDs
   {
     slug: "em-700",
-    title: "Eco EM-700",
+    title: navbarLabelMap["em-700"], // "Eco EM-700"
     subtitle: "VSD for Ventilation",
     category: ["vsd"],
     image: "/images/VFD.jpg",
@@ -331,7 +306,7 @@ export const products: Product[] = [
   },
   {
     slug: "em-750",
-    title: "Basic EM-750 Series",
+    title: navbarLabelMap["em-750"], // "Basic EM-750 Series"
     subtitle: "VSD for AHU",
     category: ["vsd"],
     image: "/images/VFD-EM750-SOLO.JPG",
@@ -346,8 +321,8 @@ export const products: Product[] = [
   },
   {
     slug: "em-760",
-    title: "HVAC Inverter",
-    subtitle: "EM 760 Series",
+    title: navbarLabelMap["em-760"], // "Advanced EM-760"
+    subtitle: "Advanced control logic for AHU and Pumps",
     category: ["vsd"],
     image: "/images/VFD-EM-760 SOLO.jpg",
     description: "The EM 760 series is tailored to meet the unique demands of HVAC systems. It includes advanced features such as automatic energy optimization, which ensures that the system operates at peak efficiency, reducing energy consumption and operational costs. The Virtec Instruments HVAC VFD Series EM 760 is a powerful and versatile solution for modern HVAC systems. With its dedicated HVAC functionality, advanced features, and robust design, it offers unparalleled performance and reliability. Whether you are looking to improve energy efficiency, enhance system control, or ensure long-term reliability, the EM 760 series is the ideal choice for your HVAC needs.",
@@ -381,10 +356,10 @@ export const products: Product[] = [
       }
     ]
   },
-  // IAQ Sensors — Missing catalog: add IAQ sensor catalog to /public/catalogs/ when ready
+  // IAQ Sensors
   {
     slug: "vir-iaq-6",
-    title: "VIR-IAQ-6-Series",
+    title: navbarLabelMap["vir-iaq-6"], // "VIR-IAQ-6-Series"
     subtitle: "Multi Sensor Option",
     category: ["iaq"],
     description: "The VIR-IAQ-6-Series Indoor Air Quality sensor offers multiple sensor options for comprehensive air quality monitoring. This series provides advanced monitoring capabilities for various air quality parameters.",
@@ -393,34 +368,6 @@ export const products: Product[] = [
       "Comprehensive air quality monitoring",
       "Advanced sensor technology",
       "Flexible sensor options"
-    ],
-    faqs: []
-  },
-  {
-    slug: "iaq-display",
-    title: "IAQ Sensor",
-    subtitle: "With Display",
-    category: ["iaq"],
-    description: "The IAQ Sensor with Display provides real-time indoor air quality monitoring with an integrated display. This sensor offers visual feedback for temperature, humidity, CO₂, PM, and other air quality parameters.",
-    keyFeatures: [
-      "Integrated display for real-time readings",
-      "Temperature and humidity monitoring",
-      "CO₂ and PM measurement",
-      "Visual feedback and easy monitoring"
-    ],
-    faqs: []
-  },
-  {
-    slug: "iaq-no-display",
-    title: "IAQ Sensor",
-    subtitle: "Without Display",
-    category: ["iaq"],
-    description: "The IAQ Sensor without Display provides comprehensive indoor air quality monitoring through digital output. This sensor is ideal for applications where display is not required or where remote monitoring is preferred.",
-    keyFeatures: [
-      "Digital output for remote monitoring",
-      "Temperature and humidity sensing",
-      "CO₂ and PM measurement",
-      "Compact design without display"
     ],
     faqs: []
   }

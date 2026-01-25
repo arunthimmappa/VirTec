@@ -4,39 +4,73 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { getProductsByCategory } from "@/lib/products";
-import type { ProductCategory } from "@/lib/products";
+import { navbarCategories, getNavbarProductsByCategory, type ProductCategory } from "@/data/navbar-products";
+import { getProductBySlug } from "@/lib/products";
 
-const categories: { id: ProductCategory; name: string; description: string }[] = [
-  {
-    id: "flow",
-    name: "Flow Meters",
-    description: "High-precision ultrasonic and electromagnetic flow measurement for water and HVAC applications",
-  },
-  {
-    id: "heat",
-    name: "Heat Meters",
-    description: "Accurate thermal energy measurement for district heating, cooling, and energy management systems",
-  },
-  {
-    id: "vsd",
-    name: "Variable Speed Drives (VSDs)",
-    description: "Intelligent motor control solutions for improved energy efficiency and system performance",
-  },
-  {
-    id: "iaq",
-    name: "Indoor Air Quality (IAQ) Sensors",
-    description: "Advanced monitoring solutions for temperature, humidity, CO₂, PM, and air quality optimization",
-  },
-];
+/**
+ * Extract and highlight series number from product label
+ * Returns an object with the series part and the rest
+ */
+function parseProductLabel(label: string): { series: string; rest: string } {
+  // Special cases first
+  if (label.startsWith("VIR UF VIR-850")) {
+    return { series: "VIR UF VIR-850", rest: " upto 800mm" };
+  }
+  if (label.startsWith("VIR-832 M/VIR DX-900")) {
+    return { series: "VIR-832 M/VIR DX-900", rest: " Clamp On- upto 1200mm" };
+  }
+  
+  // Match patterns like "Eco EM-700", "Basic EM-750", "Advanced EM-760"
+  const prefixModelMatch = label.match(/^([A-Za-z]+\s+[A-Z]{2,}-[0-9]+)/);
+  if (prefixModelMatch) {
+    const series = prefixModelMatch[1];
+    const rest = label.substring(series.length).trim();
+    return { series, rest: rest ? ` ${rest}` : "" };
+  }
+  
+  // Match model numbers like VIR-800, VIR-850, EM-700, EM-750, VIR-INSRT-800, etc.
+  const modelMatch = label.match(/^([A-Z]{2,}(?:-[0-9]+(?:-[A-Z]+)?)?)/);
+  if (modelMatch) {
+    const model = modelMatch[1];
+    const rest = label.substring(model.length).trim();
+    return { series: model, rest: rest ? ` ${rest}` : "" };
+  }
+  
+  // Match "LXC" followed by words
+  const lxcMatch = label.match(/^(LXC)(\s+.+)?$/);
+  if (lxcMatch) {
+    return { series: lxcMatch[1], rest: lxcMatch[2] || "" };
+  }
+  
+  // Fallback: return full label as series
+  return { series: label, rest: "" };
+}
 
 export default function FeaturedProducts() {
   const [activeCategory, setActiveCategory] = useState<ProductCategory>("flow");
 
-  const filteredProducts = getProductsByCategory(activeCategory);
+  // Get products from Navbar structure (source of truth)
+  const navbarProducts = getNavbarProductsByCategory(activeCategory);
+  
+  // Get full product details for images and descriptions
+  const filteredProducts = navbarProducts.map((navbarProduct) => {
+    const fullProduct = getProductBySlug(navbarProduct.slug);
+    return {
+      ...navbarProduct,
+      image: fullProduct?.image,
+      description: fullProduct?.description || navbarProduct.description,
+    };
+  });
+  
+  // Get categories from Navbar
+  const categories = navbarCategories.map((cat) => ({
+    id: cat.id,
+    name: cat.label,
+    description: cat.description,
+  }));
 
   return (
-    <section id="products" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
+    <section id="products" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Header */}
         <motion.div
@@ -107,7 +141,7 @@ export default function FeaturedProducts() {
                     {product.image ? (
                       <Image
                         src={product.image}
-                        alt={product.title}
+                        alt={product.label}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -122,12 +156,18 @@ export default function FeaturedProducts() {
 
                   {/* Product Info */}
                   <div className="p-4 sm:p-5 md:p-6">
-                    <h3 className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-900 mb-2 group-hover:text-primary-yellow transition-colors leading-tight">
-                      {product.title}
-                    </h3>
-                    {(product.subtitle || product.description) && (
+                    {(() => {
+                      const { series, rest } = parseProductLabel(product.label);
+                      return (
+                        <h3 className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-900 mb-2 group-hover:text-primary-yellow transition-colors leading-tight">
+                          <span className="font-bold">{series}</span>
+                          {rest && <span className="font-normal">{rest}</span>}
+                        </h3>
+                      );
+                    })()}
+                    {product.description && (
                       <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-600 font-medium line-clamp-2 sm:line-clamp-3">
-                        {product.subtitle || product.description}
+                        {product.description}
                       </p>
                     )}
                   </div>

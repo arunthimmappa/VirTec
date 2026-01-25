@@ -31,8 +31,8 @@ export default function AboutHero() {
             className="relative h-56 sm:h-64 md:h-72 lg:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
           >
             <Image
-              src="/images/VFD FAMILY.jpg"
-              alt="Virtec Products"
+              src="/virtec-aboutus.png"
+              alt="About Virtec"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

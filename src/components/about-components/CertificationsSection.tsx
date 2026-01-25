@@ -29,9 +29,7 @@ const certifications = [
 const standards = [
   "MID (Measuring Instruments Directive) compliant",
   "EN 1434 Heat Meter Standards",
-  "ISO 9001 Quality Management",
   "CE Marking for European Markets",
-  "UL/CSA Standards for North America",
   "EMC Directive Compliance",
 ];
 

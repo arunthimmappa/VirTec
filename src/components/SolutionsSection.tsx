@@ -45,7 +45,7 @@ const solutions = [
 
 export default function SolutionsSection() {
   return (
-    <section id="solutions" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
+    <section id="solutions" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Header */}
         <motion.div

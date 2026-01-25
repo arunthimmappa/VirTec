@@ -1,6 +1,6 @@
 export type ResourceCategory = "catalog" | "product-manual" | "technical-drawing" | "reference" | "certificate";
 
-export type ProductSeries = "VIR-800" | "VIR-832" | "VIR-850" | "LXC" | "VIR-DX-900" | "TUF-2000" | "TAO2000" | "M-BUS" | "MC-603" | "Other";
+export type ProductSeries = "VIR-800" | "VIR-832" | "VIR-850" | "LXC" | "VIR-DX-900" | "Other";
 
 export interface Resource {
   id: string;
@@ -110,14 +110,6 @@ export const manuals: Resource[] = [
     productSeries: "VIR-800",
     description: "VIR-800 Installation Manual",
   },
-  {
-    id: "manual-mc-603-vir-800",
-    name: "MC 603+ VIR-800 User Manual",
-    path: "/manuals/MC 603+ VIR-800 USER MANUAL-25509-new - Copy.pdf",
-    category: "product-manual",
-    productSeries: "MC-603",
-    description: "MC 603+ VIR-800 User Manual",
-  },
   
   // VIR-832 Series Manuals
   {
@@ -189,52 +181,6 @@ export const manuals: Resource[] = [
     category: "product-manual",
     productSeries: "VIR-DX-900",
     description: "VIR-DX-900 Clamp On Manual",
-  },
-  
-  // TUF-2000 Series Manuals
-  {
-    id: "manual-tuf-2000",
-    name: "TUF-2000 Series User Manual",
-    path: "/manuals/TUF-2000 series user manual for the inline measurement[1].pdf",
-    category: "product-manual",
-    productSeries: "TUF-2000",
-    description: "TUF-2000 Series User Manual for Inline Measurement",
-  },
-  {
-    id: "manual-tuf-2000-files",
-    name: "TUF-2000 Series User Manual (Files)",
-    path: "/manuals/_files_TUF-2000 Series User Manual.pdf",
-    category: "product-manual",
-    productSeries: "TUF-2000",
-    description: "TUF-2000 Series User Manual - Files",
-  },
-  {
-    id: "manual-tuf-2000-master",
-    name: "TUF-2000 Series User Manual (Master)",
-    path: "/manuals/MASTER FILES/2018_TUF-2000_series_user_manual_for_the_inline_measurement[1].docx",
-    category: "product-manual",
-    productSeries: "TUF-2000",
-    description: "TUF-2000 Series User Manual - Master File",
-  },
-  
-  // TAO2000 Series Manuals
-  {
-    id: "manual-tao2000",
-    name: "TAO2000 Series User Manual",
-    path: "/manuals/TAO2000 series user manual for the inline measurement.pdf",
-    category: "product-manual",
-    productSeries: "TAO2000",
-    description: "TAO2000 Series User Manual for Inline Measurement",
-  },
-  
-  // M-BUS Manuals
-  {
-    id: "manual-mbus-master",
-    name: "M-BUS Master Manual",
-    path: "/manuals/M-BUS MASTER-VIRTEC-24B19.pdf",
-    category: "product-manual",
-    productSeries: "M-BUS",
-    description: "M-BUS Master Manual",
   },
   
   // Technical Drawings
