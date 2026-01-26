@@ -88,12 +88,12 @@ export const products: Product[] = [
   {
     slug: "vir-insrt-800",
     title: navbarLabelMap["vir-insrt-800"], // "VIR-INSRT-800 Series"
-    subtitle: "Electromagnetic Flow Meter - Inline Insertion Type",
+    subtitle: "Electromagnetic Flow Meter - Insertion Type",
     category: ["flow"],
     image: "/images/VIR-800-INSRT.jpg",
-    description: "The VIR-INSRT-800 Series is an inline insertion type electromagnetic flow meter designed for applications where inline installation is required. This series offers reliable flow measurement with insertion-type installation convenience.",
+    description: "The VIR-INSRT-800 Series is an insertion type electromagnetic flow meter designed for applications where inline installation is required. This series offers reliable flow measurement with insertion-type installation convenience.",
     keyFeatures: [
-      "Inline insertion type design for easy installation",
+      "Insertion type design for easy installation",
       "Electromagnetic flow measurement technology",
       "Reliable and accurate flow measurement",
       "Suitable for various industrial applications"
@@ -275,12 +275,12 @@ export const products: Product[] = [
   {
     slug: "vir-insrt-800-heat",
     title: navbarLabelMap["vir-insrt-800-heat"], // "VIR-INSRT-800 Series"
-    subtitle: "Electromagnetic Heat Meter - Inline Insertion Type",
+    subtitle: "Electromagnetic Heat Meter - Insertion Type",
     category: ["heat"],
     image: "/images/VIR800-INSRT2.jpg",
-    description: "Electromagnetic heat meter, inline insertion type. Thermal energy measurement with insertion-type installation. Suitable for applications where inline flanged mounting is not required.",
+    description: "Electromagnetic heat meter, type. Thermal energy measurement with insertion-type installation. Suitable for applications where inline flanged mounting is not required.",
     keyFeatures: [
-      "Inline insertion type",
+      "Insertion type",
       "Electromagnetic heat measurement",
       "Easy installation",
       "Suitable for various heating applications"

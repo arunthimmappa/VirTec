@@ -51,7 +51,7 @@ const navItems: NavItem[] = [
           {
             label: "VIR-INSRT-800 Series",
             href: "/products/vir-insrt-800",
-            description: "Electromagnetic Flow Meter - Inline Insertion Type",
+            description: "Electromagnetic Flow Meter - Insertion Type",
           },
           {
             label: "VIR-850 Series",

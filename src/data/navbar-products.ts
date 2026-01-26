@@ -30,7 +30,7 @@ export const navbarCategories: NavbarCategory[] = [
       {
         label: "VIR-INSRT-800 Series",
         slug: "vir-insrt-800",
-        description: "Electromagnetic Flow Meter - Inline Insertion Type",
+        description: "Electromagnetic Flow Meter - Insertion Type",
         category: "flow",
       },
       {
@@ -97,7 +97,7 @@ export const navbarCategories: NavbarCategory[] = [
       {
         label: "VIR-INSRT-800 Series",
         slug: "vir-insrt-800-heat",
-        description: "Electromagnetic Heat Meter - Inline Insertion Type",
+        description: "Electromagnetic Heat Meter - Insertion Type",
         category: "heat",
       },
     ],
