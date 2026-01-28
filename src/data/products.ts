@@ -98,7 +98,7 @@ export const products: Product[] = [
       "Reliable and accurate flow measurement",
       "Suitable for various industrial applications"
     ],
-    // Missing catalog: add VIR-INSRT / insertion EM catalog to /public/catalogs/ when ready
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC 26128 .pdf",
     faqs: []
   },
   {
@@ -285,7 +285,7 @@ export const products: Product[] = [
       "Easy installation",
       "Suitable for various heating applications"
     ],
-    // Missing catalog: add VIR-INSRT insertion EM catalog to /public/catalogs/ when ready
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC 26128 .pdf",
     faqs: []
   },
   // VSDs
