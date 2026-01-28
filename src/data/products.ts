@@ -167,7 +167,7 @@ export const products: Product[] = [
       "Microprocessor technology for advanced processing",
       "Suitable for water as heat/cool bearing medium"
     ],
-    brochurePath: "/catalogs/LXC SERIES-HEAT METER-26128.pdf",
+    brochurePath: "/catalogs/Virtec-LXC-Water-Meter.pdf",
     faqs: [
       {
         question: "What makes the LXC Series flow meter accurate?",
@@ -294,7 +294,7 @@ export const products: Product[] = [
     title: navbarLabelMap["em-700"], // "Eco EM-700"
     subtitle: "VSD for Ventilation",
     category: ["vsd"],
-    image: "/images/VFD.jpg",
+    image: "/images/EM700.png",
     description: "The Eco EM-700 Variable Speed Drive is designed specifically for ventilation applications. This VSD provides efficient motor control for ventilation systems, optimizing energy consumption while maintaining optimal air flow.",
     keyFeatures: [
       "Designed for ventilation applications",

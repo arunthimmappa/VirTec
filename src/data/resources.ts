@@ -120,6 +120,14 @@ export const manuals: Resource[] = [
     description: "VIR-832M and VIR-850 User Manual",
   },
   {
+    id: "manual-vir-850",
+    name: "VIR-850 Series User Manual",
+    path: "/manuals/VIR-832M +VIR 850-USER MANUAL - 26128.pdf",
+    category: "product-manual",
+    productSeries: "VIR-850",
+    description: "VIR-850 Series User Manual",
+  },
+  {
     id: "manual-vir-dx-900",
     name: "VIR-DX-900 Clamp On Manual",
     path: "/manuals/VIR-DX-900 CLAMP ON MANUAL 26128.pdf",
