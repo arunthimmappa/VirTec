@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { ChevronDown, ChevronUp, Search, X, Package } from "lucide-react";
 import ResourceRow from "./ResourceRow";
 import { Resource, getCatalogs, getManuals } from "@/data/resources";
@@ -13,9 +13,12 @@ export default function ResourcesAccordion() {
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
-  const catalogs = getCatalogs();
-  const manuals = getManuals();
-  const allResources = [...catalogs, ...manuals];
+  // Memoize allResources to prevent new array reference on every render
+  const allResources = useMemo(() => {
+    const catalogs = getCatalogs();
+    const manuals = getManuals();
+    return [...catalogs, ...manuals];
+  }, []);
 
   // Group all resources (catalogs + manuals) by product series
   const groupedResources = useMemo(() => {
@@ -76,7 +79,7 @@ export default function ResourcesAccordion() {
   };
 
   // Expand sections that match search query
-  useMemo(() => {
+  useEffect(() => {
     if (searchQuery.trim()) {
       const newExpanded = new Set<string>();
       Object.keys(filteredGroupedResources).forEach((key) => {

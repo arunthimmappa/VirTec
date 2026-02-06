@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import type { Metadata } from "next";
-import { generateBaseMetadata, generateOrganizationSchema, generateWebSiteSchema, SITE_CONFIG } from "@/lib/seo";
+import { generateBaseMetadata, generateOrganizationSchema, generateWebSiteSchema, generateSiteNavigationSchema, SITE_CONFIG } from "@/lib/seo";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -39,6 +39,7 @@ export default function RootLayout({
 }>) {
   const organizationSchema = generateOrganizationSchema();
   const webSiteSchema = generateWebSiteSchema();
+  const siteNavigationSchema = generateSiteNavigationSchema();
 
   return (
     <html lang="en">
@@ -50,6 +51,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
         />
       </head>
       <body
