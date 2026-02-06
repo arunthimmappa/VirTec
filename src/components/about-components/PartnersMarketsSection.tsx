@@ -53,7 +53,7 @@ export default function PartnersMarketsSection() {
               <div className="flex items-center justify-center gap-3 sm:gap-4">
                 <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-primary-yellow" />
                 <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900">
-                  Global <span className="text-primary-yellow">Markets</span>
+                  Global Markets
                 </h2>
               </div>
               <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-700 max-w-3xl mx-auto px-4">
@@ -85,7 +85,7 @@ export default function PartnersMarketsSection() {
           <div className="space-y-4 sm:space-y-6 md:space-y-8">
             <div className="text-center space-y-2 sm:space-y-3 md:space-y-4">
               <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900">
-                Our <span className="text-primary-yellow">Partnerships</span>
+                Our Partnerships
               </h2>
               <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-700 max-w-3xl mx-auto px-4">
                 Building strong relationships with partners worldwide to deliver exceptional value and support to our customers.

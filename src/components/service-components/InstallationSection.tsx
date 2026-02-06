@@ -23,7 +23,7 @@ export default function InstallationSection() {
               </div>
               <div>
                 <h2 className="font-display text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900 font-semibold mb-3 sm:mb-4">
-                  Installation & Commissioning Assistance
+                  <span className="text-primary-yellow">Installation</span> & Commissioning Assistance
                 </h2>
               </div>
             </div>

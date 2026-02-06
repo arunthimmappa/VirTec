@@ -1,0 +1,73 @@
+---
+description: Page section styling pattern - alternating backgrounds and yellow highlights
+globs: src/components/**/*.tsx, src/app/**/*.tsx
+alwaysApply: false
+---
+
+# Page Section Styling Pattern
+
+## Background Alternation Rule
+
+Sections on pages MUST alternate between white and light gray backgrounds:
+
+- **White sections**: `bg-white`
+- **Gray sections**: `bg-slate-50`
+
+## Yellow Highlight Rule
+
+The yellow highlight in section headings is tied to background color:
+
+- **Gray background (`bg-slate-50`)**: Heading MUST have a yellow word using `<span className="text-primary-yellow">Word</span>`
+- **White background (`bg-white`)**: Heading should NOT have yellow highlighting
+- **Hero sections**: Can have yellow in title (as page title exception)
+
+---
+
+## Home Page Order
+
+1. **Hero** - `bg-white` (hero exception)
+2. **FeaturedProducts** - `bg-slate-50` (gray) - yellow "Products"
+3. **VisionSection** - `bg-white` (no yellow)
+4. **SettingTrendsSection** - `bg-slate-50` (gray) - yellow "Trends"
+5. **SolutionsSection** - `bg-white` (no yellow)
+6. **ServicesSection** - `bg-slate-50` (gray) - yellow "Services"
+
+## Services Page Order
+
+1. **ServicesHero** - `bg-white` (hero - yellow "Services")
+2. **DataAcquisitionSection** - `bg-slate-50` (gray) - yellow "Acquisition"
+3. **TurnkeyContractSection** - `bg-white` (no yellow)
+4. **InstallationSection** - `bg-slate-50` (gray) - yellow "Installation"
+5. **ServicesCardsSection** - `bg-white` (no yellow)
+
+## About Page Order
+
+1. **AboutHero** - `bg-white` (hero - yellow "Virtec")
+2. **CompanyStorySection** - `bg-slate-50` (gray) - yellow "Story"
+3. **VisionMissionSection** - `bg-white` (no yellow)
+4. **CertificationsSection** - `bg-slate-50` (gray) - yellow "Standards"
+5. **PartnersMarketsSection** - `bg-white` (no yellow)
+6. **TeamSection** - `bg-slate-50` (gray) - yellow "Team"
+
+---
+
+## Examples
+
+```tsx
+// Gray section - WITH yellow highlight
+<section className="bg-slate-50">
+  <h2>Featured <span className="text-primary-yellow">Products</span></h2>
+</section>
+
+// White section - NO yellow highlight
+<section className="bg-white">
+  <h2>Our Vision</h2>
+</section>
+```
+
+## Important
+
+When adding or removing sections from any page, always:
+1. Maintain the alternating background pattern (starting after hero)
+2. Update yellow highlights accordingly (gray = yellow, white = no yellow)
+3. Update this rule's section order list

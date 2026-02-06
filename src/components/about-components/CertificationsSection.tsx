@@ -35,7 +35,7 @@ const standards = [
 
 export default function CertificationsSection() {
   return (
-    <section className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
+    <section className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

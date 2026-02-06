@@ -89,10 +89,10 @@ export default function ResourcesAccordion() {
   }, [searchQuery, filteredGroupedResources]);
 
   return (
-    <section className="relative py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16 2xl:py-20 bg-white">
+    <section className="relative pt-0 pb-6 sm:pt-0 sm:pb-8 md:pt-0 md:pb-10 lg:pt-0 lg:pb-12 xl:pt-0 xl:pb-16 2xl:pt-0 2xl:pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Search Bar */}
-        <div className="relative w-full max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+        <div className="relative w-full max-w-2xl mx-auto mb-4 sm:mb-5 md:mb-6 lg:mb-8">
           <div className="relative">
             <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 sm:w-5 sm:h-5" />
             <input

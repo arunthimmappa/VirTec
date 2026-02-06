@@ -45,7 +45,7 @@ const solutions = [
 
 export default function SolutionsSection() {
   return (
-    <section id="solutions" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
+    <section id="solutions" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Header */}
         <motion.div
@@ -56,7 +56,7 @@ export default function SolutionsSection() {
           className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16"
         >
           <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900 mb-3 sm:mb-4">
-            Our <span className="text-primary-yellow">Solutions</span>
+            Our Solutions
           </h2>
           <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-700 max-w-3xl">
             We have a wide range of products and services for our clients that focus on:

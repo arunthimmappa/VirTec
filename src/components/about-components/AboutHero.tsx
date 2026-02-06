@@ -14,12 +14,22 @@ export default function AboutHero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             <h1 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900 leading-tight">
               About <span className="text-primary-yellow">Virtec</span>
             </h1>
-            
+            <div className="space-y-3 sm:space-y-4 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg leading-relaxed text-slate-700 font-display">
+              <p>
+                Virtec is a global leader in Heat and Flow Management Solutions for HVAC and Water applications. Our solutions are built on advanced Ultrasonic and Electromagnetic measurement technologies, delivering exceptional accuracy, reliability, and performance. Through our high-end services and innovative product portfolio, Virtec has established itself as a trusted provider of technologically advanced heat and flow measurement instruments worldwide.
+              </p>
+              <p>
+                Our comprehensive offering includes precision instrumentation, sophisticated software platforms, and specialized technical measurement services—engineered to meet the highest standards of quality, safety, and efficiency. We take complete responsibility for both the supply and overall performance of our installed systems, ensuring seamless integration and long-term reliability.
+              </p>
+              <p>
+                At Virtec, we are committed to creating a greener tomorrow by delivering smart metering solutions today. Our devices are designed with a strong focus on high precision, measurement accuracy, low power consumption, and long-term stability, empowering sustainable energy and water management across industries.
+              </p>
+            </div>
           </motion.div>
 
           {/* Right Column - Image */}

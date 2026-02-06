@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ResourcesHero() {
   return (
-    <section className="relative pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-24 md:pb-12 lg:pt-32 lg:pb-16 xl:pt-40 xl:pb-28 bg-white">
+    <section className="relative pt-20 pb-4 sm:pt-24 sm:pb-5 md:pt-24 md:pb-6 lg:pt-32 lg:pb-6 xl:pt-40 xl:pb-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column - Content */}
