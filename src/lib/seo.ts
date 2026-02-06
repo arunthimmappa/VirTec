@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const SITE_CONFIG = {
   name: "Virtec Instruments Inc.",
   shortName: "Virtec",
-  description: "Precision measurement and control solutions for HVAC, water utilities, and industrial applications. Flow meters, heat meters, VSDs, and IAQ sensors.",
+  description: "Precision flow meters, high-efficiency VFDs, and IAQ sensors for optimal HVAC performance. Engineered for accurate measurement, variable speed drives, and real-time air quality analytics.",
   url: "https://virtec.us",
   ogImage: "/virtec-logo.png", // Default OG image
   keywords: [
@@ -23,6 +23,9 @@ export const SITE_CONFIG = {
     "district energy",
     "water measurement",
     "thermal energy measurement",
+    "precision measurement",
+    "HVAC solutions",
+    "air quality sensors",
   ],
 };
 
@@ -247,5 +250,29 @@ export function generateServiceSchema({
       "@type": "Country",
       name: areaServed,
     },
+  };
+}
+
+/**
+ * Generate SiteNavigationElement structured data (JSON-LD)
+ * Helps Google understand site navigation for potential sitelinks
+ */
+export function generateSiteNavigationSchema() {
+  const navigationItems = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "About", url: "/about" },
+    { name: "Resources", url: "/resources" },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: navigationItems.map((item, index) => ({
+      "@type": "SiteNavigationElement",
+      position: index + 1,
+      name: item.name,
+      url: getAbsoluteUrl(item.url),
+    })),
   };
 }

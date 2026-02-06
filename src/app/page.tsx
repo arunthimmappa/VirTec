@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import WelcomeBanner from "@/components/WelcomeBanner";
 import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import VisionSection from "@/components/VisionSection";
 import SettingTrendsSection from "@/components/SettingTrendsSection";
@@ -46,7 +45,6 @@ export default function Home() {
         <WelcomeBanner />
         <Hero />
         <FeaturedProducts />
-        <AboutSection />
         <VisionSection />
         <SettingTrendsSection />
         <SolutionsSection />

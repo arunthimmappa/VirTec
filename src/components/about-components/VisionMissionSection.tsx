@@ -26,7 +26,7 @@ export default function VisionMissionSection() {
               <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 text-primary-yellow" strokeWidth={1.5} />
             </div>
             <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900">
-              Virtec <span className="text-primary-yellow">Mission</span>
+              Virtec Mission
             </h2>
           </div>
           

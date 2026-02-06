@@ -40,7 +40,7 @@ export default function DataAcquisitionSection() {
               </div>
               <div>
                 <h2 className="font-display text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900 font-semibold mb-3 sm:mb-4">
-                  High-End Data Acquisition Systems
+                  High-End Data <span className="text-primary-yellow">Acquisition</span> Systems
                 </h2>
               </div>
             </div>

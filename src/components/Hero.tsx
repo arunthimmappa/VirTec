@@ -39,7 +39,7 @@ const heroSlides = [
     ctaLink: "/products/vir-800",
   },
   {
-    src: "/images/VIR850 HEATMETER.jpg",
+    src: "/images/VIR850-HEATMETER.jpg",
     alt: "Ultrasonic Flow and Heat Meter- VIR UF 850 series",
     badge: "Thermal Energy Measurement Simplified",
     title: "Ultrasonic Flow and Heat Meter- VIR UF 850 series",

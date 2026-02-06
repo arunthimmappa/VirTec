@@ -5,7 +5,7 @@ import { Target } from "lucide-react";
 
 export default function VisionSection() {
   return (
-    <section className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
+    <section className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column - Text Content */}
@@ -17,7 +17,7 @@ export default function VisionSection() {
             className="space-y-4 sm:space-y-6"
           >
             <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900">
-              Our <span className="text-primary-yellow">Vision</span>
+              Our Vision
             </h2>
             <div className="space-y-3 sm:space-y-4 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg leading-relaxed text-slate-700">
               <p>
