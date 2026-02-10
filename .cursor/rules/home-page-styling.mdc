@@ -43,11 +43,13 @@ The yellow highlight in section headings is tied to background color:
 ## About Page Order
 
 1. **AboutHero** - `bg-white` (hero - yellow "Virtec")
-2. **CompanyStorySection** - `bg-slate-50` (gray) - yellow "Story"
-3. **VisionMissionSection** - `bg-white` (no yellow)
-4. **CertificationsSection** - `bg-slate-50` (gray) - yellow "Standards"
-5. **PartnersMarketsSection** - `bg-white` (no yellow)
-6. **TeamSection** - `bg-slate-50` (gray) - yellow "Team"
+2. **TestFacilitiesSection** - `bg-slate-50` (gray) - yellow "Facilities"
+3. **TestFacilitiesCapabilitiesSection** - `bg-white` (no yellow)
+4. **CompanyStorySection** - `bg-slate-50` (gray) - yellow "Story"
+5. **VisionMissionSection** - `bg-white` (no yellow)
+6. **CertificationsSection** - `bg-slate-50` (gray) - yellow "Standards"
+7. **PartnersMarketsSection** - `bg-white` (no yellow)
+8. **TeamSection** - `bg-slate-50` (gray) - yellow "Team"
 
 ---
 
