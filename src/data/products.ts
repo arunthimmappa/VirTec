@@ -211,7 +211,7 @@ export const products: Product[] = [
     title: navbarLabelMap["vir-uf"], // "VIR UF VIR-850 upto 800mm"
     subtitle: "Ultrasonic Heat Meter -In Line Type +Pt100/PT500 Temp Sensor",
     category: ["heat"],
-    image: "/images/VIR850 HEATMETER.jpg",
+    image: "/images/VIR850-HEATMETER.jpg",
     description: "The VIR UF Ultrasonic Heat Meter provides accurate thermal energy measurement for larger diameter pipes ranging from 125mm to 800mm. This meter is ideal for district heating and cooling systems requiring precise energy measurement. In-line type with Pt100/PT500 temperature sensor.",
     keyFeatures: [
       "Range from 125mm to 800mm",
