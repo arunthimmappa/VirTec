@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/components/about-components/AboutHero";
+import TestFacilitiesSection from "@/components/about-components/TestFacilitiesSection";
+import TestFacilitiesCapabilitiesSection from "@/components/about-components/TestFacilitiesCapabilitiesSection";
 import CompanyStorySection from "@/components/about-components/CompanyStorySection";
 import VisionMissionSection from "@/components/about-components/VisionMissionSection";
 import CertificationsSection from "@/components/about-components/CertificationsSection";
@@ -38,6 +40,8 @@ export default function AboutPage() {
       <div className="relative min-h-screen bg-white">
       <Navbar />
       <AboutHero />
+      <TestFacilitiesSection />
+      <TestFacilitiesCapabilitiesSection />
       <CompanyStorySection />
       <VisionMissionSection />
       <CertificationsSection />
