@@ -53,6 +53,14 @@ export const catalogs: Resource[] = [
     description: "Portable Clamp On Meter",
   },
   {
+    id: "catalog-lxc-water",
+    name: "LXC Water Meter",
+    path: "/catalogs/Virtec-LXC-Water-Meter.pdf",
+    category: "catalog",
+    productSeries: "LXC",
+    description: "Electronic Flow Meter for Water",
+  },
+  {
     id: "catalog-lxc-series",
     name: "LXC Series Heat Meter",
     path: "/catalogs/LXC SERIES-HEAT METER-26128.pdf",
