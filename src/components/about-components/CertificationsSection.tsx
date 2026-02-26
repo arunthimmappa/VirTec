@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, CheckCircle, Star, FileCheck } from "lucide-react";
+import { Shield, CheckCircle, Star, FileCheck, Download } from "lucide-react";
 
 const certifications = [
   {
@@ -31,6 +31,7 @@ const standards = [
   "EN 1434 Heat Meter Standards",
   "CE Marking for European Markets",
   "EMC Directive Compliance",
+  "Ente Certificazione Macchine Mark Certification (Form QAT_10-M05, v03)",
 ];
 
 export default function CertificationsSection() {
@@ -100,6 +101,23 @@ export default function CertificationsSection() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-6 sm:mt-8 rounded-lg border border-slate-200 bg-white p-4 sm:p-5">
+              <h4 className="font-display text-sm sm:text-base md:text-lg text-slate-900 font-semibold">
+                Ente Certificazione Macchine Mark Certificate
+              </h4>
+              <p className="mt-1 text-xs sm:text-sm md:text-sm lg:text-base text-slate-700">
+                Certificate No. 260225.VI0N79 | Issued: 25 February 2026 | Expires: 24 February 2031
+              </p>
+              <a
+                href="/certificate/Virtec-certificate.pdf"
+                download="Virtec-certificate.pdf"
+                className="mt-4 inline-flex items-center gap-2 rounded-md bg-primary-yellow px-4 py-2 text-xs sm:text-sm font-semibold text-slate-900 hover:opacity-90 transition-opacity"
+              >
+                <Download className="w-4 h-4" />
+                Download Certificate (PDF)
+              </a>
             </div>
           </motion.div>
         </motion.div>
