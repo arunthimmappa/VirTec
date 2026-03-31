@@ -156,7 +156,7 @@ export default function Hero() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
   const isInteracting = useRef(false);
-  const AUTOPLAY_DELAY = 8000;
+  const AUTOPLAY_DELAY = 3000;
 
   // Slide change handler
   const onSelect = useCallback(() => {
