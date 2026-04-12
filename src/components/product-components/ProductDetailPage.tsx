@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check, Download, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Product } from "@/data/products";
 
 interface ProductDetailPageProps {
@@ -144,15 +143,15 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                 Get detailed technical specifications and information about this product.
               </p>
               {product.brochurePath ? (
-                <Link
-                  href={product.brochurePath}
+                <a
+                  href={encodeURI(product.brochurePath)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-primary-yellow text-slate-900 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base shadow-[0_8px_30px_rgba(255,203,8,0.35)] hover:shadow-[0_12px_40px_rgba(255,203,8,0.45)] hover:brightness-105 transition-all duration-300 min-h-[44px]"
                 >
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   Download Brochure
-                </Link>
+                </a>
               ) : (
                 <div className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-slate-300 text-slate-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base cursor-not-allowed min-h-[44px]">
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
