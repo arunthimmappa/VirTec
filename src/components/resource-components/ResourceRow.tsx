@@ -1,6 +1,7 @@
 "use client";
 
 import { Download } from "lucide-react";
+import Link from "next/link";
 import { Resource } from "@/data/resources";
 
 interface ResourceRowProps {
@@ -36,8 +37,8 @@ export default function ResourceRow({ resource }: ResourceRowProps) {
 
       {/* Right side: Download Button */}
       <div className="flex-shrink-0">
-        <a
-          href={encodeURI(resource.path)}
+        <Link
+          href={resource.path}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2 rounded-lg bg-primary-yellow text-slate-900 font-medium text-xs sm:text-sm hover:bg-primary-yellow/90 transition-colors shadow-sm hover:shadow min-h-[44px] min-w-[44px]"
@@ -45,7 +46,7 @@ export default function ResourceRow({ resource }: ResourceRowProps) {
           <Download className="w-4 h-4" />
           <span className="hidden sm:inline">Download</span>
           <span className="sm:hidden">↓</span>
-        </a>
+        </Link>
       </div>
     </div>
   );
