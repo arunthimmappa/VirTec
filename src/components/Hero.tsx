@@ -13,7 +13,6 @@ import {
   Award,
   Factory,
   ArrowRight,
-  Phone,
   Wind,
 } from "lucide-react";
 import Link from "next/link";

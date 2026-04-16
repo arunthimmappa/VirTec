@@ -1,4 +1,4 @@
-export type ProductCategory = "flow" | "heat" | "vsd" | "iaq";
+export type ProductCategory = "flow" | "heat" | "vsd" | "iaq" | "vav";
 
 export interface NavbarProduct {
   label: string;
@@ -124,6 +124,19 @@ export const navbarCategories: NavbarCategory[] = [
         slug: "em-760",
         description: "Advanced control logic for AHU and Pumps",
         category: "vsd",
+      },
+    ],
+  },
+  {
+    id: "vav",
+    label: "VAV controllers",
+    description: "VAV box control and damper actuation",
+    products: [
+      {
+        label: "VMINI-44 VAV Unit Controller",
+        slug: "vmini-44",
+        description: "VAV terminal unit control with BACnet MS/TP and Modbus RTU",
+        category: "vav",
       },
     ],
   },

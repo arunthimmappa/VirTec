@@ -45,6 +45,7 @@ const navbarLabelMap: Record<string, string> = {
   "em-750": "Basic EM-750 Series",
   "em-760": "Advanced EM-760",
   "vir-iaq-6": "VIR-IAQ-6-Series",
+  "vmini-44": "VMINI-44 VAV Unit Controller",
 };
 
 // Product data - only includes products from Navbar, titles match Navbar exactly
@@ -375,5 +376,27 @@ export const products: Product[] = [
     ],
     brochurePath: "/catalogs/VIR-IAQ- IAQ SENSORS.pdf",
     faqs: []
+  },
+  // VAV Controllers
+  {
+    slug: "vmini-44",
+    title: navbarLabelMap["vmini-44"], // "VMINI-44 VAV Unit Controller"
+    subtitle: "VAV unit controller for variable air volume boxes",
+    category: ["vav"],
+    image: "/images/VAV-controllers.png",
+    description:
+      "The VMINI-44 VAV Controller is designed for simple and accurate control of variable air volume (VAV) terminal units. It supports pressure dependent or pressure independent control, with or without auto changeover, and is suited for applications such as VAV terminal units with reheat and fresh air damper control.",
+    keyFeatures: [
+      "24Vac operation",
+      "On-board differential pressure sensor",
+      "Pressure dependent or pressure independent control",
+      "Manual or automatic pressure mode selection",
+      "With or without auto changeover",
+      "BACnet MS/TP communication with automatic baud rate detection",
+      "Modbus RTU communication",
+      "Firmware upgradeable via network"
+    ],
+    brochurePath: "/catalogs/VMINI-44-COMPACT-PROGRAMMABLE-CONTROLLER.pdf",
+    faqs: [],
   }
 ];

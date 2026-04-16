@@ -135,6 +135,18 @@ const navItems: NavItem[] = [
         ],
       },
       {
+        label: "VAV controllers",
+        href: "/products#vav-controllers",
+        description: "VAV box control and damper actuation",
+        products: [
+          {
+            label: "VMINI-44 VAV Unit Controller",
+            href: "/products/vmini-44",
+            description: "VAV terminal unit control with BACnet MS/TP and Modbus RTU",
+          },
+        ],
+      },
+      {
         label: "IAQ Sensors",
         href: "/products#iaq",
         description: "Advanced monitoring for temperature, humidity, CO₂, PM",
@@ -209,7 +221,7 @@ export default function Navbar() {
   };
 
   // Check if indicator should be shown for a nav item
-  const shouldShowIndicator = (href: string, label?: string, hasDropdown?: boolean) => {
+  const shouldShowIndicator = (href: string, label?: string) => {
     // If any dropdown is open, only show indicator for that dropdown item
     if (openDesktopDropdown) {
       return openDesktopDropdown === label;
@@ -301,7 +313,7 @@ export default function Navbar() {
                       </span>
                     </button>
                     <AnimatePresence mode="wait">
-                      {shouldShowIndicator(item.href, item.label, true) && (
+                      {shouldShowIndicator(item.href, item.label) && (
                         <motion.div
                           key={`indicator-${item.label}`}
                           className="absolute bottom-0 left-1/2 h-0.5 bg-primary-yellow rounded-full"
@@ -432,7 +444,7 @@ export default function Navbar() {
                       </span>
                     </button>
                     <AnimatePresence mode="wait">
-                      {shouldShowIndicator(item.href, item.label, true) && (
+                      {shouldShowIndicator(item.href, item.label) && (
                         <motion.div
                           key={`indicator-${item.label}`}
                           className="absolute bottom-0 left-1/2 h-0.5 bg-primary-yellow rounded-full"
