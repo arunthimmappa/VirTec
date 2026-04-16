@@ -127,6 +127,24 @@ const heroSlides = [
     ctaLink: "/products/lxc-water",
   },
   {
+    src: "/images/VAV-controllers.png",
+    alt: "VMINI-44 VAV Unit Controller",
+    badge: "VAV Terminal Unit Control",
+    title: "VMINI-44 VAV Unit Controller",
+    subtitle: "VAV terminal unit control with BACnet MS/TP and Modbus RTU",
+    description:
+      "Compact, reliable control for variable air volume (VAV) terminal units—supports seamless BMS integration for modern HVAC applications.",
+    icon: Factory,
+    features: [
+      "BACnet MS/TP communication",
+      "Modbus RTU communication",
+      "On-board differential pressure sensor",
+      "Firmware upgradeable via network",
+    ],
+    ctaText: "Learn More",
+    ctaLink: "/products/vmini-44",
+  },
+  {
     src: "/images/IAQ-SENSOR.png",
     alt: "VIR-IAQ-6-Series Indoor Air Quality Sensor",
     badge: "Comprehensive Air Quality Monitoring",
