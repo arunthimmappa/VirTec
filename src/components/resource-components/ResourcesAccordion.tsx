@@ -87,7 +87,10 @@ export default function ResourcesAccordion() {
           newExpanded.add(key);
         }
       });
-      setExpandedSections(newExpanded);
+      const t = window.setTimeout(() => {
+        setExpandedSections(newExpanded);
+      }, 0);
+      return () => window.clearTimeout(t);
     }
   }, [searchQuery, filteredGroupedResources]);
 
@@ -211,7 +214,7 @@ export default function ResourcesAccordion() {
               </div>
               <h3 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-display text-slate-900">No resources found</h3>
               <p className="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-lg text-slate-600">
-                Try adjusting your search query to find what you're looking for.
+                Try adjusting your search query to find what you&apos;re looking for.
               </p>
             </div>
           </div>

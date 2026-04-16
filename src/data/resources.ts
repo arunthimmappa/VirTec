@@ -1,6 +1,6 @@
 export type ResourceCategory = "catalog" | "product-manual" | "technical-drawing" | "reference" | "certificate";
 
-export type ProductSeries = "VIR-800" | "VIR-832" | "VIR-850" | "LXC" | "VIR-DX-900" | "VSD" | "VIR-IAQ" | "Other";
+export type ProductSeries = "VIR-800" | "VIR-832" | "VIR-850" | "LXC" | "VIR-DX-900" | "VSD" | "VIR-IAQ" | "VAV" | "Other";
 
 export interface Resource {
   id: string;
@@ -99,6 +99,14 @@ export const catalogs: Resource[] = [
     category: "catalog",
     productSeries: "VIR-IAQ",
     description: "Indoor Air Quality Sensors",
+  },
+  {
+    id: "catalog-vmini-44",
+    name: "VMINI-44 Compact Programmable Controller",
+    path: "/catalogs/VMINI-44-COMPACT-PROGRAMMABLE-CONTROLLER.pdf",
+    category: "catalog",
+    productSeries: "VAV",
+    description: "VMINI-44 VAV Unit Controller brochure",
   },
 ];
 
