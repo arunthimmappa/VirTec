@@ -6,20 +6,36 @@ import { CheckCircle } from "lucide-react";
 
 const facilityImages = [
   {
-    src: "/test-facilities/IMG_4997.JPG",
-    alt: "Large-bore pipe calibration bench at Virtec testing facility",
+    src: "/calibration/emf-calibration-1.jpg",
+    alt: "Large-bore electromagnetic flow meter calibration bench at Virtec",
   },
   {
-    src: "/test-facilities/IMG_5032.JPG",
-    alt: "Small-bore calibration stations with precision control equipment",
+    src: "/calibration/emf-calibration-2.jpg",
+    alt: "EMF calibration test rig with reference instrumentation",
   },
   {
-    src: "/test-facilities/IMG_5033.JPG",
-    alt: "Calibration setup with reference instrumentation and control panels",
+    src: "/calibration/emf-calibration-3.jpg",
+    alt: "Electromagnetic flow meter wet calibration setup",
   },
   {
-    src: "/test-facilities/IMG_5034.JPG",
-    alt: "Computerized control workstations for calibration data acquisition",
+    src: "/calibration/emf-calibration-4.jpg",
+    alt: "EMF flow meter under test with controlled stable flow conditions",
+  },
+  {
+    src: "/calibration/emf-calibration-5.jpg",
+    alt: "Large-diameter EMF calibration line with precision flow control",
+  },
+  {
+    src: "/calibration/small-diameter-emf-calibration-1.jpg",
+    alt: "Small-bore EMF calibration station for DN25 to DN100 flow meters",
+  },
+  {
+    src: "/calibration/small-diameter-emf-calibration-2.jpg",
+    alt: "Small-diameter electromagnetic flow meter calibration bench",
+  },
+  {
+    src: "/calibration/small-diameter-emf-calibration-3.jpg",
+    alt: "Precision small-bore calibration setup with reference standards",
   },
 ];
 

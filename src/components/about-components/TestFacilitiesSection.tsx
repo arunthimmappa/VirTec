@@ -47,8 +47,8 @@ export default function TestFacilitiesSection() {
             className="relative h-56 sm:h-64 md:h-72 lg:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
           >
             <Image
-              src="/test-facilities/IMG_4996.JPG"
-              alt="Virtec Calibration Workshop - Large-bore calibration and test facility"
+              src="/calibration/emf-calibration-6.png"
+              alt="Virtec EMF calibration facility - large-bore electromagnetic flow meter calibration bench"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
