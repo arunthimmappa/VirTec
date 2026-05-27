@@ -10,7 +10,7 @@ import shutil
 import sys
 
 PUBLIC_DIR = Path(__file__).parent / "public"
-PDF_DIRS = ["catalogs", "certificate", "manuals", "test-facilities"]
+PDF_DIRS = ["catalogs", "certificate", "manuals"]
 
 
 def _scrub_docinfo(pdf: pikepdf.Pdf) -> None:
