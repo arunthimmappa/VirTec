@@ -168,6 +168,15 @@ export default function Footer() {
                   <Mail size={12} className="text-primary-yellow" />
                   sb@virtec.us
                 </a>
+                <div className="pt-1 font-medium text-white">Support</div>
+                <a href="tel:+918652130804" className="flex items-center gap-1 hover:text-primary-yellow transition-colors">
+                  <Phone size={12} className="text-primary-yellow" />
+                  +91 86521 30804
+                </a>
+                <a href="mailto:support@virtec.us" className="flex items-center gap-1 hover:text-primary-yellow transition-colors break-all">
+                  <Mail size={12} className="text-primary-yellow" />
+                  support@virtec.us
+                </a>
               </div>
             </div>
           </div>
